@@ -1,1 +1,72 @@
 @import "tailwindcss";
+
+@theme inline {
+  --font-cormorant-garamond: var(--font-cormorant-garamond);
+  --font-dm-sans: var(--font-dm-sans);
+
+  /* Colors */
+  --color-titaneo: oklch(0.138 0.0687 312.94);
+  --color-gold: oklch(0.8089 0.1566 80.71);
+  --color-deep-indigo: oklch(0.3558 0.1957 284.63);
+  --color-snow: oklch(0.9643 0.007 88.64);
+  --color-deep-dark: oklch(0.1068 0.0519 317.58);
+}
+
+@layer base {
+  h1 {
+    font-family: var(--font-cormorant-garamond);
+  }
+  h2 {
+    font-family: var(--font-cormorant-garamond);
+  }
+  h3 {
+    font-family: var(--font-cormorant-garamond);
+  }
+  p {
+    font-family: var(--font-dm-sans);
+  }
+  a {
+    font-family: var(--font-dm-sans);
+  }
+
+  /* Prevent browser autofill from overriding custom styles */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  textarea:-webkit-autofill:active,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus,
+  select:-webkit-autofill:active {
+    /* Force transparent/dark background using box-shadow trick */
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    box-shadow: 0 0 0 1000px transparent inset !important;
+
+    /* Force light text color for dark forms */
+    -webkit-text-fill-color: var(--color-purple-accent) !important;
+    color: var(--color-purple-accent) !important;
+
+    /* Prevent background color transition (effectively disables browser styling) */
+    transition:
+      background-color 5000s ease-in-out 0s,
+      color 5000s ease-in-out 0s !important;
+
+    /* Preserve borders and other properties */
+    border-color: var(--color-soft-bg) !important;
+    background-color: transparent !important;
+  }
+
+  /* Firefox autofill override */
+  input:-moz-autofill,
+  textarea:-moz-autofill,
+  select:-moz-autofill {
+    background-color: transparent !important;
+    color: var(--color-purple-accent) !important;
+    border-color: var(--color-purple-accent) !important;
+    filter: none !important;
+  }
+}

@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import { Font } from "astro:assets";
 import SeoHead from "@/components/SeoHead.astro";
 import Navbar from "@/components/global/Navbar.astro";
 import Footer from "@/components/global/Footer.astro";
@@ -31,6 +32,10 @@ const allSchemas = [...schemas, ORGANIZATION_SCHEMA, WEBSITE_SCHEMA];
 
     <!-- SEO Head -->
     <SeoHead seoProps={seoProps} schemas={allSchemas} />
+
+    <!-- Font Optimization -->
+    <Font cssVariable="--font-cormorant-garamond" preload />
+    <Font cssVariable="--font-dm-sans" preload />
 
     <script>
       import "@/utils/scripts/lennis.js";
