@@ -1,0 +1,61 @@
+---
+import { services } from "@/config/services";
+
+// Map services to practice areas with their icons
+const practiceAreas = services.map((service) => ({
+  title: service.title,
+  description: service.seoDescription, // Using SEO description for cards
+  icon: service.icon,
+}));
+---
+
+<section class="bg-snow px-6 py-20 md:px-12 lg:px-20">
+  <div class="mx-auto max-w-7xl">
+    <!-- Header -->
+    <div
+      class="mb-16 flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end"
+    >
+      <div>
+        <p class="text-gold mb-3 text-sm font-medium tracking-wider uppercase">
+          Especialidades
+        </p>
+        <h2 class="text-titaneo text-4xl md:text-5xl lg:text-6xl">
+          Áreas de Práctica
+        </h2>
+      </div>
+      <div class="max-w-md">
+        <p class="text-deep-indigo/50 text-base leading-relaxed lg:text-right">
+          Enfoque exclusivo y altamente especializado en derecho electoral e
+          institucional.
+        </p>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-4 lg:gap-8">
+      {
+        practiceAreas.map((area) => (
+          <article class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl">
+            <div class="relative z-10">
+              {/* Icon */}
+              <div class="bg-titaneo/5 group-hover:bg-gold group-hover:shadow-gold/30 text-titaneo mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full shadow-lg transition-all duration-300 group-hover:scale-110">
+                <area.icon class="h-8 w-8" />
+              </div>
+
+              {/* Content */}
+              <h3 class="text-titaneo mb-4 text-xl leading-tight">
+                {area.title}
+              </h3>
+              <p class="text-deep-indigo/50 mb-6 text-base leading-relaxed">
+                {area.description}
+              </p>
+
+              {/* Decorative line */}
+              <div class="bg-gold h-0.5 w-10 transition-all duration-300 group-hover:w-full" />
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

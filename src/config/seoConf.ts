@@ -88,36 +88,35 @@ export type JSONLDSchema = Record<string, unknown>;
 // =============================================================================
 
 export const COMPANY_INFO: CompanyInfo = {
-  name: "Your Company Name",
+  name: "Buitrago & Villota",
   description:
-    "Your company description optimized for SEO. Include main keywords naturally.",
-  url: "https://yourwebsite.com",
-  phone: "+1-555-555-5555",
-  email: "contact@yourwebsite.com",
+    "Firma boutique en derecho electoral colombiano. Nulidad electoral, pérdida de investidura e impugnación de candidaturas. Ex Consejera de Estado. +95% de éxito.",
+  url: "https://buitragovillota.com", // TODO: confirmar URL definitiva del sitio
+  phone: "+57-000-000-0000", // TODO: reemplazar con número real (WhatsApp Business)
+  email: "contacto@buitragovillota.com", // TODO: reemplazar con correo institucional real
   address: {
-    street: "123 Main Street",
-    city: "Your City",
-    region: "Your State/Region",
-    postalCode: "12345",
-    country: "Your Country",
-    countryCode: "US",
+    street: "Calle 00 # 00-00", // TODO: reemplazar con dirección física real en Bogotá
+    city: "Bogotá",
+    region: "Bogotá D.C.",
+    postalCode: "110111", // TODO: confirmar código postal de la oficina
+    country: "Colombia",
+    countryCode: "CO",
   },
   geo: {
-    latitude: 0.0,
-    longitude: 0.0,
+    // TODO: reemplazar con coordenadas exactas (https://www.latlong.net/)
+    latitude: 4.711,
+    longitude: -74.0721,
   },
   logo: "/images/logo.svg",
   image: "/images/og-image.png",
-  foundingDate: "2024",
-  founders: ["Founder 1", "Founder 2"],
+  foundingDate: "2015", // TODO: confirmar año exacto (el doc indica >10 años de ejercicio independiente)
+  founders: ["Susana Buitrago Valencia", "Luis Fernando Villota Medina"],
   socialMedia: {
-    linkedin: "https://linkedin.com/company/yourcompany",
-    instagram: "https://instagram.com/yourcompany",
-    facebook: "https://facebook.com/yourcompany",
-    twitter: "https://twitter.com/yourcompany",
-    youtube: "https://youtube.com/@yourcompany",
-    tiktok: "https://tiktok.com/@yourcompany",
-    googleBusiness: "https://g.page/yourcompany",
+    linkedin: "https://linkedin.com/company/buitragovillota", // TODO: reemplazar con perfil real
+    instagram: "https://instagram.com/buitragovillota", // TODO: reemplazar con perfil real
+    facebook: "https://facebook.com/buitragovillota", // TODO: reemplazar con página real
+    // twitter: "",       // TODO: agregar si la firma tiene perfil activo en X/Twitter
+    // googleBusiness: "", // TODO: agregar URL del perfil de Google Business al publicarlo
   },
 };
 
@@ -127,23 +126,31 @@ export const COMPANY_INFO: CompanyInfo = {
 // =============================================================================
 
 export const MAIN_KEYWORDS: MainKeywords = {
+  // Alta intención — van en H1, meta titles, homepage y nombres de servicio
   primary: [
-    "main keyword 1",
-    "main keyword 2",
-    "brand name keyword",
+    "abogados electorales Colombia",
+    "nulidad electoral Colombia",
+    "firma boutique derecho electoral",
   ] as string[],
+  // Volumen medio, alta especificidad — van en H2, meta descriptions y páginas de servicio
   secondary: [
-    "secondary keyword 1",
-    "secondary keyword 2",
-    "service keyword 1",
-    "service keyword 2",
+    "pérdida de investidura Colombia",
+    "doble militancia abogados Colombia",
+    "impugnación candidaturas CNE",
+    "consultoría electoral partidos políticos",
+    "defensa credencial electoral Colombia",
   ] as string[],
+  // Cola larga, alta conversión — van en FAQs, blog, schema knowsAbout y contenido detallado
   tertiary: [
-    "long tail keyword 1",
-    "long tail keyword 2",
-    "problem-based keyword 1",
-    "problem-based keyword 2",
-    "location-based keyword 1",
+    "abogados pérdida de investidura Colombia",
+    "defensa ante Consejo Nacional Electoral",
+    "demanda nulidad electoral Colombia",
+    "inhabilidades candidatos elecciones Colombia",
+    "abogados Sección Quinta Consejo de Estado",
+    "asesoría electoral partidos políticos Colombia",
+    "Ex Consejera de Estado abogada electoral Bogotá",
+    "impugnar candidatura doble militancia Colombia",
+    "firma jurídica especializada derecho contencioso electoral",
   ] as string[],
 };
 
@@ -152,12 +159,12 @@ export const MAIN_KEYWORDS: MainKeywords = {
 // =============================================================================
 
 export const DEFAULT_SEO: SEOProps = {
-  title: `${COMPANY_INFO.name} | Your Main Value Proposition`,
+  title: `${COMPANY_INFO.name} | Excelencia Legal en el Campo Electoral`,
   description: COMPANY_INFO.description,
   canonical: COMPANY_INFO.url,
   openGraph: {
     basic: {
-      title: `${COMPANY_INFO.name} | Your Main Value Proposition`,
+      title: `${COMPANY_INFO.name} | Excelencia Legal en el Campo Electoral`,
       type: "website",
       image: `${COMPANY_INFO.url}${COMPANY_INFO.image}`,
       url: COMPANY_INFO.url,
@@ -170,9 +177,9 @@ export const DEFAULT_SEO: SEOProps = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourhandle",
-    creator: "@yourhandle",
-    title: `${COMPANY_INFO.name} | Your Main Value Proposition`,
+    site: "@buitragovillota", // TODO: reemplazar con handle real de X/Twitter si existe
+    creator: "@buitragovillota", // TODO: reemplazar con handle real de X/Twitter si existe
+    title: `${COMPANY_INFO.name} | Excelencia Legal en el Campo Electoral`,
     description: COMPANY_INFO.description,
     image: `${COMPANY_INFO.url}${COMPANY_INFO.image}`,
   },
@@ -180,11 +187,11 @@ export const DEFAULT_SEO: SEOProps = {
     meta: [
       { name: "robots", content: "index, follow" },
       { name: "author", content: COMPANY_INFO.name },
-      { name: "theme-color", content: "#000000" },
-      { name: "msapplication-TileColor", content: "#000000" },
+      { name: "theme-color", content: "#12001c" },
+      { name: "msapplication-TileColor", content: "#12001c" },
       { httpEquiv: "Content-Language", content: "es-CO" },
-      { name: "geo.region", content: COMPANY_INFO.address.countryCode },
-      { name: "geo.placename", content: COMPANY_INFO.address.country },
+      { name: "geo.region", content: "CO-DC" },
+      { name: "geo.placename", content: "Bogotá, Colombia" },
     ],
   },
 };
@@ -201,7 +208,7 @@ export function generateDynamicSEO(options: DynamicSEOOptions): SEOProps {
     company: COMPANY_INFO.name,
     primaryKeyword: MAIN_KEYWORDS.primary[0] ?? "",
     location: options.location ?? COMPANY_INFO.address.city,
-    cta: "Contact us today",
+    cta: "Solicite su valoración confidencial hoy",
     ...options.customData,
   };
 
@@ -237,8 +244,8 @@ export function generateDynamicSEO(options: DynamicSEOOptions): SEOProps {
     },
     twitter: {
       card: "summary_large_image",
-      site: "@yourhandle",
-      creator: "@yourhandle",
+      site: "@buitragovillota", // TODO: reemplazar con handle real si existe
+      creator: "@buitragovillota", // TODO: reemplazar con handle real si existe
       title,
       description,
       image: imageUrl,
@@ -250,7 +257,7 @@ export function generateDynamicSEO(options: DynamicSEOOptions): SEOProps {
           name: "robots",
           content: options.noindex ? "noindex, nofollow" : "index, follow",
         },
-        { name: "theme-color", content: "#000000" },
+        { name: "theme-color", content: "#12001c" },
         { httpEquiv: "Content-Language", content: "es-CO" },
       ],
     },
@@ -267,12 +274,12 @@ function generateDynamicTitle(
   const { pageType } = options;
 
   const titleMappings: Record<string, string> = {
-    home: `${vars.company} | ${vars.primaryKeyword}`,
-    about: `Quiénes Somos | ${vars.company}`,
-    services: `Servicios | ${vars.company}`,
-    contact: `Contacto | ${vars.company}`,
-    blog: `Blog | ${vars.company}`,
-    faq: `Preguntas Frecuentes | ${vars.company}`,
+    home: `${vars.company} | Excelencia Legal en el Campo Electoral`,
+    about: `La Firma | Abogados Electorales ${vars.company}`,
+    services: `Áreas de Práctica | Abogados Electorales ${vars.company}`,
+    contact: `Contacto Confidencial | ${vars.company} Abogados`,
+    blog: `Jurisprudencia Electoral y Actualidad | ${vars.company}`,
+    faq: `Preguntas Frecuentes | ${vars.company} Abogados`,
     privacy: `Política de Privacidad | ${vars.company}`,
     terms: `Términos de Servicio | ${vars.company}`,
   };
@@ -299,12 +306,12 @@ function generateDynamicDescription(
   const { pageType } = options;
 
   const descriptionMappings: Record<string, string> = {
-    home: `${vars.company} - ${COMPANY_INFO.description}`,
-    about: `Conoce a ${vars.company} y nuestra misión. Expertos en ${vars.primaryKeyword} en ${vars.location}.`,
-    services: `Explora nuestros servicios profesionales. ${vars.company} ofrece soluciones de ${vars.primaryKeyword}.`,
-    contact: `Ponte en contacto con ${vars.company}. Contacta a nuestros expertos en ${vars.primaryKeyword} hoy.`,
-    blog: `Blog de ${vars.company} - Artículos, guías y consejos sobre ${vars.primaryKeyword}.`,
-    faq: `Preguntas frecuentes sobre ${vars.company}. Encuentra respuestas a tus dudas.`,
+    home: `Firma boutique de alta magistratura. Expertos en nulidad electoral y pérdida de investidura en Colombia. Ex Consejera de Estado. +95% de éxito. Consulte hoy.`,
+    about: `${vars.company}: Ex Consejera de Estado y Ex Magistrado Auxiliar. Expertos en nulidad electoral y pérdida de investidura. 10+ años, +95% éxito en Colombia.`,
+    services: `Nulidad electoral, pérdida de investidura e impugnación ante el CNE. ${vars.company}: precisión jurídica de la Sección Quinta. +95% tasa de éxito.`,
+    contact: `Solicite valoración confidencial con ${vars.company}. Atención prioritaria en derecho electoral colombiano. Discreción y rigor desde el primer contacto.`,
+    blog: `Análisis de jurisprudencia electoral, fallos recientes del Consejo de Estado y opinión técnica. ${vars.company}, autoridad en derecho electoral colombiano.`,
+    faq: `Resolvemos sus dudas sobre nulidad electoral, pérdida de investidura, doble militancia e inhabilidades electorales en Colombia. Firma ${vars.company}.`,
   };
 
   if (descriptionMappings[pageType]) {
@@ -326,7 +333,7 @@ export const ORGANIZATION_SCHEMA: JSONLDSchema = {
   "@type": "Organization",
   "@id": `${COMPANY_INFO.url}#organization`,
   name: COMPANY_INFO.name,
-  alternateName: [],
+  alternateName: ["B&V Abogados", "Buitrago Villota Abogados"],
   description: COMPANY_INFO.description,
   url: COMPANY_INFO.url,
   logo: `${COMPANY_INFO.url}${COMPANY_INFO.logo}`,
@@ -361,8 +368,8 @@ export const ORGANIZATION_SCHEMA: JSONLDSchema = {
   knowsAbout: [...MAIN_KEYWORDS.primary, ...MAIN_KEYWORDS.secondary],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Our Professional Services",
-    description: "Specialized services for professionals and businesses",
+    name: "Áreas de Práctica Jurídica",
+    description: "Servicios especializados en derecho electoral colombiano: nulidad electoral, pérdida de investidura, impugnación de candidaturas y consultoría para partidos políticos",
     itemListElement: services.map((service, index) => ({
       "@type": "Offer",
       position: index + 1,
@@ -572,7 +579,7 @@ export function generateServiceSchema(service: Service): JSONLDSchema {
  */
 export const LOCAL_BUSINESS_SCHEMA: JSONLDSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "LegalService",
   "@id": `${COMPANY_INFO.url}#localbusiness`,
   name: COMPANY_INFO.name,
   description: COMPANY_INFO.description,

@@ -1,16 +1,24 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
 import Hero from "@/components/perpage/home/Hero.astro";
+import QuoteSection from "@/components/perpage/home/QuoteSection.astro";
+import PracticeAreas from "@/components/perpage/home/PracticeAreas.astro";
+import PartnersSection from "@/components/perpage/home/PartnersSection.astro";
+import FAQs from "@/components/global/FAQs.astro";
 import { generateDynamicSEO } from "@/config/seoConf";
+import { generalFAQs } from "@/config/faqs";
 
 const homeSeo = generateDynamicSEO({
   pageType: "home",
   title: "Home - My Website",
   description: "Welcome to my website. Explore our content and services.",
-
 });
 ---
 
-<MainLayout seoProps={homeSeo}/>  
+<MainLayout seoProps={homeSeo}>
   <Hero />
+  <QuoteSection />
+  <PracticeAreas />
+  <PartnersSection />
+  <FAQs faqs={generalFAQs} />
 </MainLayout>

@@ -6,7 +6,7 @@ import Award from "@/assets/icons/award.svg";
 ---
 
 <section
-  class="hero-section from-titaneo to-deep-dark relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-linear-to-br px-6 py-20 sm:px-8 lg:px-12"
+  class="hero-section from-titaneo to-deep-dark relative flex min-h-screen w-full items-center justify-center bg-linear-to-br px-6 py-20 sm:px-8 lg:px-12"
 >
   <!-- Decorative gradient orbs for depth -->
   <div
@@ -31,34 +31,38 @@ import Award from "@/assets/icons/award.svg";
     </div>
 
     <!-- Main heading -->
-    <h1
-      class="text-snow mb-8 text-5xl leading-tight font-normal tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
-    >
-      Excelencia Legal en el
-      <span class="text-gold block italic">Campo Electoral.</span>
-    </h1>
+    <div class="flex flex-col items-center justify-center p-14">
+      <h1
+        class="text-snow mb-8 text-5xl leading-tight font-normal tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+      >
+        Excelencia Legal en el
+        <span class="text-gold block italic">Campo Electoral.</span>
+      </h1>
 
-    <!-- Description -->
-    <p
-      class="text-snow/80 mx-auto mb-12 max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl"
-    >
-      Defensa e impugnación electoral estructurada con la precisión de quienes
-      han redactado los fallos más complejos del Estado.
-    </p>
+      <!-- Description -->
+      <p
+        class="text-snow/80 mx-auto mb-12 max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl"
+      >
+        Defensa e impugnación electoral estructurada con la precisión de quienes
+        han redactado los fallos más complejos del Estado.
+      </p>
 
-    <!-- CTA Button -->
-    <a
-      href="/contacto"
-      class="group bg-gold text-titaneo hover:bg-gold/90 hover:shadow-gold/20 inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold tracking-wide uppercase transition-all duration-300 hover:shadow-2xl sm:text-lg"
-    >
-      Consulta Confidencial
-      <ArrowRight
-        class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-      />
-    </a>
+      <!-- CTA Button -->
+      <a
+        href="/contacto"
+        class="group bg-gold text-titaneo hover:bg-gold/90 hover:shadow-gold/20 inline-flex items-center gap-3 rounded-full px-6 py-3 text-base font-semibold tracking-wide uppercase transition-all duration-300 hover:shadow-2xl sm:text-lg"
+      >
+        Consulta Confidencial
+        <ArrowRight
+          class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+        />
+      </a>
+    </div>
 
     <!-- Stats Bar -->
-    <div class="mt-16 sm:mt-20 lg:mt-24">
+    <div
+      class="mt-16 sm:mt-20 lg:absolute lg:right-0 lg:-bottom-52 lg:left-0 lg:mt-24"
+    >
       <div
         class="bg-snow mx-auto max-w-7xl rounded-3xl p-8 shadow-2xl backdrop-blur-sm"
       >
