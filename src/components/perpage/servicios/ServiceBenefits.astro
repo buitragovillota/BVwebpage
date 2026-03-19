@@ -1,0 +1,38 @@
+---
+interface Props {
+  benefits: string[];
+  title?: string;
+}
+
+const { benefits, title = "Lo que incluye este servicio" } = Astro.props;
+---
+
+<section class="bg-deep-indigo/95 py-20 sm:py-28">
+  <div class="container mx-auto max-w-4xl px-6">
+    <!-- Section Title -->
+    <h2
+      class="text-snow mb-12 text-center font-serif text-3xl font-normal tracking-tight sm:text-4xl"
+    >
+      {title}
+    </h2>
+
+    <!-- Benefits Grid -->
+    <ul class="grid gap-6 sm:grid-cols-2">
+      {
+        benefits.map((benefit) => (
+          <li class="bg-deep-indigo/50 border-gold/10 group relative overflow-hidden rounded-lg border p-6 transition-all duration-300 hover:border-gold/30">
+            <!-- Accent Line -->
+            <div class="bg-gold absolute left-0 top-0 h-full w-1 opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
+
+            <!-- Benefit Text -->
+            <div class="relative pl-4">
+              <span class="text-snow/90 block leading-relaxed group-hover:text-snow">
+                {benefit}
+              </span>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

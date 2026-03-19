@@ -1,0 +1,92 @@
+---
+import ArrowRight from "@/assets/icons/arrow-right.svg";
+import ProfileCard from "@/components/ui/cards/ProfileCard.astro";
+import lawyermen from "@/assets/images/lawyermen.jpg";
+import lawyerwomen from "@/assets/images/lawyerwomen.jpg";
+
+// TODO: Replace these placeholder paths with actual partner images
+// Place partner images in src/assets/partners/ directory
+// For now, using placeholder - component will need actual images to render
+// Uncomment these imports when images are ready:
+// import susanaBuitrago from "@/assets/partners/susana-buitrago.jpg";
+// import luisVillota from "@/assets/partners/luis-villota.jpg";
+---
+
+<section
+  class="partners-section bg-titaneo relative overflow-hidden px-6 py-24 sm:px-8 lg:px-12 lg:py-32"
+>
+  <!-- Decorative gradient orb -->
+  <div
+    class="bg-deep-indigo/20 absolute top-1/3 right-1/4 h-96 w-96 rounded-full blur-3xl"
+  >
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl">
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-5 lg:gap-16">
+      <!-- Left Column: Text Content -->
+      <div class="max-w-2xl lg:col-span-2">
+        <!-- Eyebrow Label -->
+        <div class="mb-6 flex items-center gap-3">
+          <div class="bg-gold h-px w-12"></div>
+          <p
+            class="text-gold text-xs font-semibold tracking-widest uppercase sm:text-sm"
+          >
+            Los Socios
+          </p>
+        </div>
+
+        <!-- Main Heading -->
+        <h2
+          class="text-snow mb-6 font-serif text-4xl leading-tight font-normal tracking-tight sm:text-5xl lg:text-6xl"
+        >
+          Autoridad forjada en las <span class="text-gold italic"
+            >más altas cortes.</span
+          >
+        </h2>
+
+        <!-- Description -->
+        <p
+          class="text-snow/75 mb-8 max-w-xl text-base leading-relaxed sm:text-lg"
+        >
+          Dirigidos por la Dra. Susana Buitrago Valencia (Ex Consejera de
+          Estado) y el Dr. Luis Fernando Villota Medina (Ex Magistrado
+          Auxiliar), nuestra firma le ofrece una ventaja técnica inigualable. El
+          conocimiento "desde adentro" de la Sección Quinta es nuestro mayor
+          escudo.
+        </p>
+
+        <!-- CTA Link -->
+        <a
+          href="/nosotros"
+          class="text-gold hover:text-gold/80 group inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase transition-colors duration-300 sm:text-base"
+        >
+          Conocer Trayectoria
+          <ArrowRight
+            class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+          />
+        </a>
+      </div>
+
+      <!-- Right Column: Partner Images -->
+      <div class="relative flex items-center justify-center lg:col-span-3">
+        <div class="relative h-full w-full max-w-lg">
+          <!-- Partner 1: Dra. Susana Buitrago -->
+          <ProfileCard
+            image={lawyerwomen}
+            name="Dra. S. Buitrago V."
+            position="Ex Consejera de Estado"
+            class="relative z-20 mx-auto mb-8 w-64 sm:ml-0 sm:w-72 lg:mt-24"
+          />
+
+          <!-- Partner 2: Dr. Luis Fernando Villota -->
+          <ProfileCard
+            image={lawyermen}
+            name="Dr. L.F. Villota M."
+            position="Ex Magistrado Auxiliar"
+            class="relative z-10 mx-auto w-64 sm:-mr-24 sm:ml-auto sm:w-72 lg:-mt-96"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

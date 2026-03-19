@@ -30,32 +30,36 @@ export interface Author {
  */
 export const AUTHORS: Author[] = [
   {
-    name: "Jane Doe",
-    role: "Co-founder & Brand Strategist",
-    bio: "Brand strategy specialist with 10+ years helping businesses build authentic connections with their audience.",
-    image: "/images/team/jane-doe.jpg",
-    credentials: ["Brand Strategy", "Digital Marketing", "Content Creation"],
-    socialMedia: {
-      instagram: "https://www.instagram.com/janedoe/",
-      linkedin: "https://www.linkedin.com/in/janedoe/",
-    },
-    url: "/about#jane-doe",
-  },
-  {
-    name: "John Smith",
-    role: "Co-founder & Web Developer",
-    bio: "Full-stack developer specialized in high-performance websites with modern technologies and SEO optimization.",
-    image: "/images/team/john-smith.jpg",
+    name: "Dra. Susana Buitrago Valencia",
+    role: "Socia Fundadora | Ex Consejera de Estado",
+    bio: "Jurista colombiana de alto nivel y referente indiscutible en el derecho público nacional. Durante su periodo como Magistrada de la Sección Quinta del Consejo de Estado, lideró y tomó decisiones críticas que hoy son guía y jurisprudencia de referencia en el país.",
+    image: "/images/team/susana-buitrago.jpg",
     credentials: [
-      "Web Development",
-      "Performance Optimization",
-      "Technical SEO",
+      "Derecho Electoral",
+      "Pérdida de Investidura",
+      "Control de Legalidad",
+      "Derecho Contencioso Administrativo",
     ],
     socialMedia: {
-      linkedin: "https://www.linkedin.com/in/johnsmith/",
-      twitter: "https://twitter.com/johnsmith",
+      linkedin: "https://www.linkedin.com/in/susana-buitrago/",
     },
-    url: "/about#john-smith",
+    url: "/nosotros",
+  },
+  {
+    name: "Dr. Luis Fernando Villota Medina",
+    role: "Socio Fundador | Ex Magistrado Auxiliar",
+    bio: "Especialista en la arquitectura de estrategias jurídicas complejas. Su paso por la alta magistratura le otorgó una capacidad analítica para desentrañar expedientes y estructurar litigios sólidos.",
+    image: "/images/team/luis-villota.jpg",
+    credentials: [
+      "Estrategia Jurídica",
+      "Derecho Electoral",
+      "Nulidad Electoral",
+      "Derecho Público",
+    ],
+    socialMedia: {
+      linkedin: "https://www.linkedin.com/in/luis-villota/",
+    },
+    url: "/nosotros",
   },
 ];
 
@@ -64,13 +68,17 @@ export const AUTHORS: Author[] = [
  * Uses organization as generic author
  */
 export const DEFAULT_AUTHOR: Author = {
-  name: "Your Company Name", // TODO: replace with COMPANY_INFO.name
-  role: "Digital Agency",
-  bio: "We help businesses grow online through design, development, and strategy.", // TODO: replace with COMPANY_INFO.description
-  credentials: ["Digital Marketing", "Web Design", "Brand Strategy"],
+  name: "Buitrago & Villota",
+  role: "Firma Boutique de Alta Magistratura",
+  bio: "Excelencia legal en el campo electoral. Expertos en defensa e impugnación electoral con más de 10 años de litigio independiente y una tasa de éxito superior al 95%.",
+  credentials: [
+    "Derecho Electoral",
+    "Nulidad Electoral",
+    "Pérdida de Investidura",
+    "Derecho Contencioso Administrativo",
+  ],
   socialMedia: {
-    linkedin: "https://www.linkedin.com/company/your-company", // TODO: replace with COMPANY_INFO.socialMedia.linkedin
-    instagram: "https://www.instagram.com/your-company", // TODO: replace with COMPANY_INFO.socialMedia.instagram
+    linkedin: "https://www.linkedin.com/company/buitrago-villota",
   },
 };
 

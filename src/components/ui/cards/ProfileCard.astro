@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  name: string;
+  position: string;
+  image?: ImageMetadata;
+  class?: string;
+}
+
+const { name, position, image, class: className } = Astro.props;
+---
+
+<article class={className}>
+  <div
+    class="border-snow/20 relative overflow-hidden rounded-t-full border p-2"
+  >
+    {
+      image ? (
+        <Image
+          src={image}
+          alt={name}
+          class="aspect-auto h-full w-full rounded-t-full object-cover grayscale-50 transition-transform duration-800 ease-in-out hover:scale-105 hover:grayscale-0"
+        />
+      ) : (
+        <div class="bg-deep-indigo/30 flex aspect-3/4 items-center justify-center">
+          <span class="text-snow/40 text-center text-sm">
+            Partner Image
+            <br />
+            270x360px
+          </span>
+        </div>
+      )
+    }
+  </div>
+
+  <!-- Partner Info -->
+  <div class="mt-6 text-center">
+    <h3
+      class="text-snow mb-1 font-serif text-xl font-normal tracking-tight sm:text-2xl"
+    >
+      {name}
+    </h3>
+    <p class="text-gold text-xs font-semibold tracking-widest uppercase">
+      {position}
+    </p>
+  </div>
+</article>
