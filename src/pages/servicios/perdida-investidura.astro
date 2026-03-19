@@ -1,0 +1,31 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import ServiceHero from "@/components/perpage/servicios/ServiceHero.astro";
+import ServiceBenefits from "@/components/perpage/servicios/ServiceBenefits.astro";
+import Cta from "@/components/global/Cta.astro";
+import { generateDynamicSEO, services } from "@/config/seoConf";
+
+// Find this service in the configuration
+const service = services.find((s) => s.slug === "perdida-investidura")!;
+
+// Generate SEO
+const seoProps = generateDynamicSEO({
+  pageType: "service",
+  title: `${service.title} | Buitrago & Villota`,
+  description: service.seoDescription,
+  canonical: `/servicios/${service.slug}/`,
+});
+---
+
+<MainLayout seoProps={seoProps}>
+  <ServiceHero
+    title={service.title}
+    description={service.description}
+    microcopy={service.microcopy}
+    icon={service.icon}
+  />
+
+  {service.benefits && <ServiceBenefits benefits={service.benefits} />}
+
+  <Cta />
+</MainLayout>

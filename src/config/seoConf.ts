@@ -16,7 +16,7 @@ import {
 // Re-export for convenience
 export { services, type Service };
 export { allFAQs, type FAQItem };
-export { generalFAQs, pricingFAQs, getFAQsByCategory } from "./faqs";
+export { generalFAQs, getFAQsByCategory } from "./faqs";
 export { AUTHORS, DEFAULT_AUTHOR, getAuthorByName, type Author };
 
 // =============================================================================
@@ -369,7 +369,8 @@ export const ORGANIZATION_SCHEMA: JSONLDSchema = {
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Áreas de Práctica Jurídica",
-    description: "Servicios especializados en derecho electoral colombiano: nulidad electoral, pérdida de investidura, impugnación de candidaturas y consultoría para partidos políticos",
+    description:
+      "Servicios especializados en derecho electoral colombiano: nulidad electoral, pérdida de investidura, impugnación de candidaturas y consultoría para partidos políticos",
     itemListElement: services.map((service, index) => ({
       "@type": "Offer",
       position: index + 1,
@@ -548,20 +549,21 @@ export function generateServiceSchema(service: Service): JSONLDSchema {
         url: `${COMPANY_INFO.url}${service.image}`,
       },
     }),
-    ...(service.benefits && service.benefits.length > 0 && {
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: `${service.title} - Beneficios`,
-        itemListElement: service.benefits.map((benefit, index) => ({
-          "@type": "Offer",
-          position: index + 1,
-          itemOffered: {
-            "@type": "Service",
-            name: benefit,
-          },
-        })),
-      },
-    }),
+    ...(service.benefits &&
+      service.benefits.length > 0 && {
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: `${service.title} - Beneficios`,
+          itemListElement: service.benefits.map((benefit, index) => ({
+            "@type": "Offer",
+            position: index + 1,
+            itemOffered: {
+              "@type": "Service",
+              name: benefit,
+            },
+          })),
+        },
+      }),
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",

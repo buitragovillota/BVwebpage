@@ -12,13 +12,15 @@ const { name, position, image, class: className } = Astro.props;
 ---
 
 <article class={className}>
-  <div class="bg-snow/5 relative overflow-hidden rounded-t-full">
+  <div
+    class="border-snow/20 relative overflow-hidden rounded-t-full border p-2"
+  >
     {
       image ? (
         <Image
           src={image}
           alt={name}
-          class="aspect-3/4 h-full w-full object-cover"
+          class="aspect-auto h-full w-full rounded-t-full object-cover grayscale-50 transition-transform duration-800 ease-in-out hover:scale-105 hover:grayscale-0"
         />
       ) : (
         <div class="bg-deep-indigo/30 flex aspect-3/4 items-center justify-center">
