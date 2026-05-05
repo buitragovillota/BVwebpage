@@ -1,0 +1,29 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroAbout from "@/components/perpage/aboutUs/HeroAbout.astro";
+import CompetitiveAdvantage from "@/components/perpage/aboutUs/CompetitiveAdvantage.astro";
+import Founders from "@/components/perpage/aboutUs/Founders.astro";
+import Cta from "@/components/global/Cta.astro";
+import { generateDynamicSEO, generateAllAuthorsSchemas } from "@/config/seoConf";
+
+const aboutSeo = generateDynamicSEO({
+  pageType: "about",
+  canonical: "/nosotros/",
+});
+
+const authorSchemas = generateAllAuthorsSchemas();
+---
+
+<MainLayout seoProps={aboutSeo} schemas={authorSchemas}>
+  <HeroAbout />
+  <CompetitiveAdvantage />
+  <Founders />
+  <div class="bg-titaneo px-6 py-24 sm:px-8 lg:px-12">
+    <Cta
+      heading="Proteja su carrera política y sus derechos constitucionales."
+      description="La confidencialidad y la inmediatez son vitales en el entorno electoral. Contáctenos hoy."
+      primaryLabel="Iniciar consulta confidencial"
+      primaryHref="/contacto"
+    />
+  </div>
+</MainLayout>

@@ -2,8 +2,8 @@
 import { AUTHORS } from "@/config/authorBio";
 import ArrowRight from "@/assets/icons/arrow-right.svg";
 import ProfileCard from "@/components/ui/cards/ProfileCard.astro";
-import lawyermen from "@/assets/images/lawyermen.jpg";
-import lawyerwomen from "@/assets/images/lawyerwomen.jpg";
+import lawyermen from "@/assets/images/Villota.webp";
+import lawyerwomen from "@/assets/images/buitrago.webp";
 ---
 
 <section
@@ -42,11 +42,10 @@ import lawyerwomen from "@/assets/images/lawyerwomen.jpg";
         <p
           class="text-snow/75 mb-8 max-w-xl text-base leading-relaxed sm:text-lg"
         >
-          Dirigidos por la Dra. Susana Buitrago Valencia (Ex Consejera de
-          Estado) y el Dr. Luis Fernando Villota Medina (Ex Magistrado
-          Auxiliar), nuestra firma le ofrece una ventaja técnica inigualable. El
-          conocimiento "desde adentro" de la Sección Quinta es nuestro mayor
-          escudo.
+          Dirigidos por la Dra. Susana Buitrago Valencia y el Dr. Luis Fernando
+          Villota Medina, nuestra firma le ofrece una ventaja técnica
+          inigualable. El conocimiento "desde adentro" de la Sección Quinta es
+          nuestro mayor escudo.
         </p>
 
         <!-- CTA Link -->
@@ -68,7 +67,7 @@ import lawyerwomen from "@/assets/images/lawyerwomen.jpg";
           <ProfileCard
             image={lawyerwomen}
             name={AUTHORS[0].name}
-            position="Ex Consejera de Estado"
+            position={AUTHORS[0].role.split("|")[1]}
             class="relative z-20 mx-auto mb-8 w-64 sm:ml-0 sm:w-72 lg:mt-24"
           />
 
@@ -76,7 +75,7 @@ import lawyerwomen from "@/assets/images/lawyerwomen.jpg";
           <ProfileCard
             image={lawyermen}
             name={AUTHORS[1].name}
-            position="Ex Magistrado Auxiliar"
+            position={AUTHORS[1].role.split("|")[1]}
             class="relative z-10 mx-auto w-64 sm:-mr-24 sm:ml-auto sm:w-72 lg:-mt-120"
           />
         </div>

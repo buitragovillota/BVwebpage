@@ -1,0 +1,153 @@
+---
+import { Image } from "astro:assets";
+import lawyerwomen from "@/assets/images/buitrago.webp";
+import lawyermen from "@/assets/images/Villota.webp";
+import { AUTHORS } from "@/config/authorBio";
+
+const susana = AUTHORS[0];
+const luis = AUTHORS[1];
+---
+
+<section class="bg-titaneo relative overflow-hidden">
+  <!-- ─── Partner 1: Dra. Susana Buitrago ─── -->
+  <div
+    class="from-deep-dark to-titaneo relative grid min-h-screen grid-cols-1 items-center bg-linear-to-br lg:grid-cols-2"
+  >
+    <!-- Decorative orb -->
+    <div
+      class="bg-deep-indigo/20 pointer-events-none absolute top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+
+    <!-- Image — left on lg -->
+    <div class="relative h-96 overflow-hidden lg:h-full lg:min-h-screen">
+      <Image
+        src={lawyerwomen}
+        alt={susana.name}
+        class="h-full w-full object-cover object-top grayscale"
+        widths={[640, 960, 1280]}
+        sizes="(max-width: 1024px) 100vw, 50vw"
+      />
+      <!-- Gradient overlay to blend into content -->
+      <div
+        class="from-titaneo/0 to-titaneo/80 pointer-events-none absolute inset-0 bg-linear-to-r via-transparent lg:hidden"
+      >
+      </div>
+      <div
+        class="from-titaneo/0 to-titaneo pointer-events-none absolute inset-0 hidden bg-linear-to-r lg:block"
+      >
+      </div>
+    </div>
+
+    <!-- Content — right on lg -->
+    <div
+      class="relative z-10 px-6 py-16 sm:px-8 lg:-ml-24 lg:max-w-2xl lg:px-12 lg:py-24"
+    >
+      <!-- Eyebrow -->
+      <div class="mb-8 flex items-center gap-4">
+        <div class="bg-gold h-px w-10"></div>
+        <p class="text-gold text-xs font-semibold tracking-widest uppercase">
+          Los Fundadores
+        </p>
+      </div>
+
+      <h2
+        class="text-snow mb-2 text-4xl leading-tight font-normal tracking-tight sm:text-5xl lg:text-6xl"
+      >
+        {susana.name}
+      </h2>
+      <p class="text-gold mb-8 text-xs font-semibold tracking-widest uppercase">
+        Socia Fundadora · Ex Magistrada titular de la Sección Quinta del Consejo de Estado
+      </p>
+
+      <div class="text-snow/75 mb-8 space-y-4 text-base leading-relaxed sm:text-lg">
+        {susana.fullBio?.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      <!-- Credentials -->
+      <ul class="flex flex-wrap gap-2">
+        {
+          susana.credentials.map((c) => (
+            <li class="border-snow/20 text-snow/60 rounded-full border px-3 py-1 text-xs tracking-wide">
+              {c}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Thin gold divider -->
+  <div class="bg-gold/15 h-px w-full"></div>
+
+  <!-- ─── Partner 2: Dr. Luis Fernando Villota ─── -->
+  <div
+    class="from-titaneo to-deep-dark relative grid min-h-screen grid-cols-1 items-center bg-linear-to-bl lg:grid-cols-2"
+  >
+    <!-- Decorative orb -->
+    <div
+      class="bg-gold/8 pointer-events-none absolute top-1/2 right-1/3 h-80 w-80 -translate-y-1/2 rounded-full blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+
+    <!-- Content — left on lg (reversed layout) -->
+    <div
+      class="relative z-10 order-2 px-6 py-16 sm:px-8 lg:order-1 lg:-mr-24 lg:max-w-2xl lg:px-16 lg:py-24"
+    >
+      <div class="mb-8 flex items-center gap-4">
+        <div class="bg-gold h-px w-10"></div>
+        <p class="text-gold text-xs font-semibold tracking-widest uppercase">
+          Los Fundadores
+        </p>
+      </div>
+
+      <h2
+        class="text-snow mb-2 text-4xl leading-tight font-normal tracking-tight sm:text-5xl lg:text-6xl"
+      >
+        {luis.name}
+      </h2>
+      <p class="text-gold mb-8 text-xs font-semibold tracking-widest uppercase">
+        Socio Fundador · Ex Magistrado Auxiliar de la Sección Quinta del Consejo de Estado
+      </p>
+
+      <div class="text-snow/75 mb-8 space-y-4 text-base leading-relaxed sm:text-lg">
+        {luis.fullBio?.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      <!-- Credentials -->
+      <ul class="flex flex-wrap gap-2">
+        {
+          luis.credentials.map((c) => (
+            <li class="border-snow/20 text-snow/60 rounded-full border px-3 py-1 text-xs tracking-wide">
+              {c}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Image — right on lg -->
+    <div
+      class="relative order-1 h-96 overflow-hidden lg:order-2 lg:h-full lg:min-h-screen"
+    >
+      <Image
+        src={lawyermen}
+        alt={luis.name}
+        class="h-full w-full object-cover object-top grayscale"
+        widths={[640, 960, 1280]}
+        sizes="(max-width: 1024px) 100vw, 50vw"
+      />
+      <!-- Gradient overlay -->
+      <div
+        class="from-titaneo/0 to-titaneo/80 pointer-events-none absolute inset-0 bg-linear-to-l via-transparent lg:hidden"
+      >
+      </div>
+      <div
+        class="from-titaneo/0 to-titaneo pointer-events-none absolute inset-0 hidden bg-linear-to-l lg:block"
+      >
+      </div>
+    </div>
+  </div>
+</section>
