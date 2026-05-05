@@ -1,0 +1,68 @@
+---
+import ArrowRight from "@/assets/icons/arrow-right.svg";
+---
+
+<section
+  class="hero-about from-deep-dark to-titaneo relative flex min-h-screen w-full items-end bg-linear-to-br px-6 pt-40 pb-24 sm:px-8 lg:px-16 lg:pb-32"
+>
+  <!-- Decorative gradient orbs -->
+  <div
+    class="bg-deep-indigo/25 pointer-events-none absolute top-1/3 left-1/4 h-128 w-lg rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="bg-gold/8 pointer-events-none absolute right-1/6 bottom-1/4 h-80 w-80 rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10 mx-auto w-full max-w-7xl">
+    <!-- Eyebrow -->
+    <div class="mb-10 flex items-center gap-4">
+      <div class="bg-gold h-px w-16"></div>
+      <p class="text-gold text-xs font-semibold tracking-widest uppercase">
+        La Firma
+      </p>
+    </div>
+
+    <!-- Headline — editorial split layout -->
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-0">
+      <!-- H1 block: spans 8 cols -->
+      <div class="lg:col-span-2">
+        <h1
+          class="text-snow text-4xl leading-none font-normal tracking-tight sm:text-5xl lg:text-9xl"
+        >
+          Más que litigantes,
+          <br />
+          <span class="text-gold italic">estrategas</span> de derecho
+          <br />
+          electoral.
+        </h1>
+      </div>
+
+      <!-- Description block: spans 4 cols, aligned bottom -->
+      <div class="flex flex-col justify-end lg:col-span-1 lg:pb-4">
+        <p
+          class="text-snow/70 mb-8 max-w-sm text-base leading-relaxed sm:text-lg"
+        >
+          En Buitrago &amp; Villota no improvisamos. Estructuramos la defensa o
+          la impugnación con el mayor rigor técnico-jurídico: hechos
+          pertinentes, pruebas idóneas y argumentos contundentes.
+        </p>
+        <a
+          href="/contacto"
+          class="group text-titaneo bg-gold hover:bg-gold/90 hover:shadow-gold/20 inline-flex w-fit items-center gap-3 rounded-full px-6 py-3 text-sm font-semibold tracking-wide uppercase transition-all duration-300 hover:shadow-2xl"
+        >
+          Consulta Confidencial
+          <ArrowRight
+            class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Thin gold divider -->
+    <div class="bg-gold/20 mt-20 h-px w-full"></div>
+  </div>
+</section>

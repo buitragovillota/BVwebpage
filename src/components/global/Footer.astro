@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import { COMPANY_INFO } from "@/config/seoConf";
-import { services } from "@/config/services";
 import logoShine from "@/assets/images/logoshinewhitecharacters.svg";
 
 // Import social media icons
@@ -30,11 +29,6 @@ const socialLinks = [
   },
 ];
 
-// Service links - limit to 4 main services
-const serviceLinks = services.slice(0, 4).map((service) => ({
-  name: service.title,
-  url: `/servicios/${service.slug}`,
-}));
 ---
 
 <footer class="bg-titaneo border-gold/10 border-t">
@@ -84,26 +78,7 @@ const serviceLinks = services.slice(0, 4).map((service) => ({
         </div>
       </div>
 
-      <!-- Middle Section: Services -->
-      <div class="lg:col-span-4">
-        <h3 class="text-gold mb-6 text-xl font-semibold tracking-wide">
-          Servicios
-        </h3>
-        <nav class="space-y-3">
-          {
-            serviceLinks.map((service) => (
-              <a
-                href={service.url}
-                class="text-snow/70 hover:text-gold block text-base transition-colors duration-200"
-              >
-                {service.name}
-              </a>
-            ))
-          }
-        </nav>
-      </div>
-
-      <!-- Right Section: Contacts -->
+<!-- Right Section: Contacts -->
       <div class="lg:col-span-3">
         <h3 class="text-gold mb-6 text-xl font-semibold tracking-wide">
           Contacto

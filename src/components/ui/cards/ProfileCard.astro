@@ -20,7 +20,7 @@ const { name, position, image, class: className } = Astro.props;
         <Image
           src={image}
           alt={name}
-          class="aspect-auto h-full w-full rounded-t-full object-cover grayscale-50 transition-transform duration-800 ease-in-out hover:scale-105 hover:grayscale-0"
+          class="aspect-auto h-full w-full rounded-t-full object-cover grayscale transition-transform duration-800 ease-in-out hover:scale-105 hover:grayscale-0"
         />
       ) : (
         <div class="bg-deep-indigo/30 flex aspect-3/4 items-center justify-center">

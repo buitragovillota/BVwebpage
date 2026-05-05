@@ -1,0 +1,75 @@
+---
+const pillars = [
+  {
+    label: "Precisión Técnica",
+    body: "Comprendemos exactamente qué requiere y analiza tanto la autoridad administrativa como el juez contencioso al estudiar asuntos de naturaleza electoral. Nuestra trayectoria nos permite anticipar escenarios y construir tácticas efectivas.",
+  },
+  {
+    label: "Confidencialidad Absoluta",
+    body: "La relevancia de los casos que manejamos exige discreción total. Desde la primera consulta blindamos integralmente la información de nuestros clientes con protocolos de privacidad absolutos.",
+  },
+  {
+    label: "Resultados Tangibles",
+    body: "Con más de una década de ejercicio independiente, mantenemos una tasa de éxito superior al 95% en los litigios y defensas de casos electorales de alta complejidad.",
+  },
+];
+---
+
+<section class="bg-snow relative overflow-hidden py-24 lg:py-36">
+  <!-- Subtle background texture blobs -->
+  <div
+    class="bg-gold/6 pointer-events-none absolute -top-20 -left-20 h-80 w-80 rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="bg-deep-indigo/5 pointer-events-none absolute -right-20 -bottom-20 h-80 w-80 rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-16">
+    <!-- Section header -->
+    <div class="mb-16 lg:mb-20">
+      <div class="mb-5 flex items-center gap-4">
+        <div class="bg-gold h-px w-12"></div>
+        <p class="text-gold text-xs font-semibold tracking-widest uppercase">
+          Nuestra Ventaja Competitiva
+        </p>
+      </div>
+      <h2
+        class="text-titaneo max-w-2xl text-3xl leading-tight font-normal tracking-tight sm:text-4xl lg:text-5xl"
+      >
+        El por qué de nuestra firma.
+      </h2>
+    </div>
+
+    <!-- Three columns — "Our Story" editorial layout -->
+    <div class="grid grid-cols-1 gap-0 md:grid-cols-3">
+      {
+        pillars.map((pillar, i) => (
+          <div
+            class:list={[
+              "py-10 md:py-0 md:px-10 lg:px-14",
+              i !== pillars.length - 1
+                ? "border-b border-titaneo/15 md:border-b-0 md:border-r"
+                : "",
+              i === 0 ? "md:pl-0" : "",
+              i === pillars.length - 1 ? "md:pr-0" : "",
+            ]}
+          >
+            <h3 class="text-titaneo mb-5 text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
+              {pillar.label}
+            </h3>
+            <p class="text-deep-indigo/80 text-base leading-relaxed">
+              {pillar.body}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Bottom rule -->
+    <div class="bg-titaneo/10 mt-16 h-px w-full lg:mt-20"></div>
+  </div>
+</section>

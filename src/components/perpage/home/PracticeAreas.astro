@@ -1,11 +1,14 @@
 ---
 import { services } from "@/config/services";
+import ServiceCard from "@/components/ui/cards/ServiceCard.astro";
+import CTA from "@/components/global/Cta.astro";
 
-// Map services to practice areas with their icons
 const practiceAreas = services.map((service) => ({
   title: service.title,
-  description: service.seoDescription, // Using SEO description for cards
+  description: service.seoDescription,
   icon: service.icon,
+  slug: service.slug,
+  cta: service.cta,
 }));
 ---
 
@@ -32,30 +35,29 @@ const practiceAreas = services.map((service) => ({
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-4 lg:gap-8">
+    <div
+      class="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8"
+    >
       {
         practiceAreas.map((area) => (
-          <article class="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl">
-            <div class="relative z-10">
-              {/* Icon */}
-              <div class="bg-titaneo/5 group-hover:bg-gold group-hover:shadow-gold/30 text-titaneo mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full shadow-lg transition-all duration-300 group-hover:scale-110">
-                <area.icon class="h-8 w-8" />
-              </div>
-
-              {/* Content */}
-              <h3 class="text-titaneo mb-4 text-xl leading-tight">
-                {area.title}
-              </h3>
-              <p class="text-deep-indigo/50 mb-6 text-base leading-relaxed">
-                {area.description}
-              </p>
-
-              {/* Decorative line */}
-              <div class="bg-gold h-0.5 w-10 transition-all duration-300 group-hover:w-full" />
-            </div>
-          </article>
+          <ServiceCard
+            title={area.title}
+            description={area.description}
+            icon={area.icon}
+          />
         ))
       }
     </div>
+    <CTA
+      heading="¿Enfrentando una situación electoral?"
+      primaryLabel="Agendar Consulta"
+      primaryHref="/contacto/"
+    >
+      <Fragment slot="description">
+        No deje su futuro político al azar. En
+        <strong class="text-titaneo italic">Buitrago & Villota</strong> somos expertos
+        en defensa electoral y tenemos la experiencia para proteger su investidura.
+      </Fragment>
+    </CTA>
   </div>
 </section>

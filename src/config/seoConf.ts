@@ -90,7 +90,7 @@ export type JSONLDSchema = Record<string, unknown>;
 export const COMPANY_INFO: CompanyInfo = {
   name: "Buitrago & Villota",
   description:
-    "Firma boutique en derecho electoral colombiano. Nulidad electoral, pérdida de investidura e impugnación de candidaturas. Ex Consejera de Estado. +95% de éxito.",
+    "Firma boutique en derecho electoral colombiano. Nulidad electoral, pérdida de investidura e impugnación de candidaturas. +95% de éxito.",
   url: "https://buitragovillota.com", // TODO: confirmar URL definitiva del sitio
   phone: "+57-000-000-0000", // TODO: reemplazar con número real (WhatsApp Business)
   email: "contacto@buitragovillota.com", // TODO: reemplazar con correo institucional real

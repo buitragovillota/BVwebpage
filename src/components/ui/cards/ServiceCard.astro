@@ -1,9 +1,37 @@
 ---
+interface Props {
+  title: string;
+  description: string;
+  icon: (_props: Record<string, unknown>) => unknown;
+  class?: string;
+}
 
+const { title, description, icon: Icon, class: className } = Astro.props;
 ---
 
-<div>
-  <h1 class="text-2xl font-bold">
-    Service Card Component
-  </h1>
-</div>
+<article
+  class:list={[
+    "group relative flex flex-col overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl",
+    className,
+  ]}
+>
+  <div class="relative z-10 flex flex-1 flex-col">
+    <div
+      class="bg-titaneo/5 group-hover:bg-gold group-hover:shadow-gold/30 text-titaneo mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full shadow-lg transition-all duration-300 group-hover:scale-110"
+    >
+      <Icon class="h-8 w-8" />
+    </div>
+
+    <h3 class="text-titaneo mb-4 text-xl leading-tight">
+      {title}
+    </h3>
+    <p class="text-deep-indigo/50 mb-6 flex-1 text-base leading-relaxed">
+      {description}
+    </p>
+
+    <div
+      class="bg-gold h-0.5 w-10 transition-all duration-300 group-hover:w-full"
+    >
+    </div>
+  </div>
+</article>

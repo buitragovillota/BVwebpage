@@ -1,7 +1,43 @@
 ---
+import ArrowRight from "@/assets/icons/arrow-right.svg";
+interface Props {
+  heading?: string;
+  description?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  class?: string;
+}
 
+const {
+  heading,
+  description,
+  primaryLabel,
+  primaryHref,
+  class: className,
+} = Astro.props;
 ---
 
-<section>
-  <h1 class="text-6xl font-bold">CTA</h1>
-</section>
+<div
+  class:list={[
+    "bg-snow border-titaneo/10 mx-auto max-w-6xl rounded-3xl border px-8 py-8 text-center shadow-sm transition-all duration-500 hover:scale-105",
+    className,
+  ]}
+>
+  <h2 class="text-titaneo mb-2 text-5xl leading-tight lg:text-6xl">
+    {heading}
+  </h2>
+
+  <p class="text-deep-indigo/60 mx-auto mb-5 max-w-xl text-base leading-relaxed md:text-lg">
+    <slot name="description">{description}</slot>
+  </p>
+
+  <a
+    href={primaryHref}
+    class="group bg-gold text-titaneo hover:bg-gold/90 hover:shadow-gold/20 inline-flex items-center gap-3 rounded-full px-6 py-3 text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-2xl sm:text-lg"
+  >
+    {primaryLabel}
+    <ArrowRight
+      class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+    />
+  </a>
+</div>
