@@ -5,18 +5,20 @@ import QuoteSection from "@/components/perpage/home/QuoteSection.astro";
 import PracticeAreas from "@/components/perpage/home/PracticeAreas.astro";
 import PartnersSection from "@/components/perpage/home/PartnersSection.astro";
 import FAQs from "@/components/global/FAQs.astro";
-import { generateDynamicSEO } from "@/config/seoConf";
+import { generateDynamicSEO, generateFAQSchema } from "@/config/seoConf";
 import { generalFAQs } from "@/config/faqs";
 
 const homeSeo = generateDynamicSEO({
   pageType: "home",
   title: "Buitrago & Villota | Excelencia iuris en Derecho Electoral",
   description:
-    "Firma boutique especializada en derecho electoral colombiano. Nulidad electoral, pérdida de investiduta e impugnación de candidaturas. Ex Consejera de Estado.",
+    "Firma boutique especializada en derecho electoral colombiano. Nulidad electoral, pérdida de investiduta e impugnación de candidaturas.",
 });
+
+const faqSchema = generateFAQSchema(generalFAQs);
 ---
 
-<MainLayout seoProps={homeSeo}>
+<MainLayout seoProps={homeSeo} schemas={[faqSchema]}>
   <Hero />
   <QuoteSection />
   <PracticeAreas />

@@ -93,7 +93,7 @@ export const COMPANY_INFO: CompanyInfo = {
     "Firma boutique en derecho electoral colombiano. Nulidad electoral, pérdida de investidura e impugnación de candidaturas. +95% de éxito.",
   url: "https://buitragovillota.com", // TODO: confirmar URL definitiva del sitio
   phone: "+57-000-000-0000", // TODO: reemplazar con número real (WhatsApp Business)
-  email: "contacto@buitragovillota.com", // TODO: reemplazar con correo institucional real
+  email: "buitragovillota.abogados@gmail.com", // TODO: reemplazar con correo institucional real
   address: {
     street: "Calle 00 # 00-00", // TODO: reemplazar con dirección física real en Bogotá
     city: "Bogotá",

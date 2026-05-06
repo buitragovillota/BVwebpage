@@ -1,0 +1,17 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import ContactSection from "@/components/perpage/contact/ContactSection.astro";
+import { generateDynamicSEO } from "@/config/seoConf";
+import HeroContact from "@/components/perpage/contact/HeroContact.astro";
+const contactoSeo = generateDynamicSEO({
+  pageType: "contact",
+  title: "Contacto | Buitrago & Villota — Consulta Confidencial",
+  description:
+    "Inicie su consulta confidencial con Buitrago & Villota. Atención prioritaria en litigios electorales, pérdida de investidura e impugnación de candidaturas.",
+});
+---
+
+<MainLayout seoProps={contactoSeo}>
+  <HeroContact />
+  <ContactSection />
+</MainLayout>
