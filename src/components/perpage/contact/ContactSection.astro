@@ -1,0 +1,66 @@
+---
+import WhatsAppIcon from "@/assets/icons/whatsapp.svg";
+import ArrowRight from "@/assets/icons/arrow-right.svg";
+import ContactForm from "@/components/ui/form/ContactForm.astro";
+---
+
+<section class="bg-titaneo relative min-h-screen py-24 lg:py-32">
+  <!-- Ambient glow decorations -->
+  <div
+    class="bg-deep-indigo/20 pointer-events-none absolute top-0 right-0 h-96 w-96 rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="bg-gold/5 pointer-events-none absolute bottom-0 left-0 h-64 w-64 rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+    <!-- Two-column layout -->
+    <div class="grid grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-10">
+      <!-- Left Column: Cómo contactarnos -->
+      <div class="lg:col-span-4 lg:pt-2">
+        <div class="mb-6 flex items-center gap-3">
+          <div class="bg-gold h-px w-8"></div>
+          <span class="text-gold text-xs font-medium tracking-widest uppercase"
+            >Vías de Contacto</span
+          >
+        </div>
+
+        <h2
+          class="text-snow mb-6 text-4xl leading-tight font-normal tracking-tight lg:text-5xl"
+        >
+          Cómo<br />
+          <span class="text-gold italic">contactarnos</span>
+        </h2>
+
+        <div class="bg-gold/20 mb-8 h-px w-full"></div>
+
+        <p class="text-snow/65 mb-8 text-base leading-relaxed">
+          Escriba directamente a nuestro canal de WhatsApp.
+        </p>
+
+        <!-- WhatsApp CTA -->
+        <a
+          href="https://wa.me/57"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-gold text-deep-dark hover:bg-gold/90 hover:shadow-gold/20 group mb-4 inline-flex w-full items-center justify-center gap-3 rounded-lg px-6 py-4 text-sm font-semibold tracking-wider uppercase transition-all duration-200 hover:shadow-lg"
+        >
+          <WhatsAppIcon class="h-5 w-5 shrink-0" />
+          Escribir por WhatsApp
+          <ArrowRight
+            class="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+          />
+        </a>
+      </div>
+
+      <!-- Right Column: Contact Form Card -->
+      <div class="lg:col-span-8">
+        <ContactForm />
+      </div>
+    </div>
+  </div>
+</section>

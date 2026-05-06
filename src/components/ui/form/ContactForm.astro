@@ -1,9 +1,277 @@
 ---
-
+import { actions } from "astro:actions";
+import ChevronDown from "@/assets/icons/chevron-down.svg";
+import CheckIcon from "@/assets/icons/check.svg";
 ---
 
-<div>
-  <h1 class="text-2xl font-bold">
-    form component
-  </h1>
+<div
+  class="border-snow/10 bg-deep-dark/60 relative overflow-hidden rounded-2xl border px-8 py-10 shadow-2xl backdrop-blur-sm sm:px-10 sm:py-12"
+>
+  <!-- Accent line -->
+  <div
+    class="via-gold/40 absolute top-0 right-0 left-0 h-px bg-linear-to-r from-transparent to-transparent"
+  >
+  </div>
+
+  <!-- Form -->
+  <form
+    method="post"
+    action={actions.getContact}
+    class="contact-form space-y-6"
+  >
+    <!-- Full name / Entity -->
+    <div>
+      <label
+        for="nombre"
+        class="text-snow/55 mb-2 block text-xs font-medium tracking-wider uppercase"
+      >
+        Nombre Completo / Entidad
+      </label>
+      <input
+        id="nombre"
+        type="text"
+        name="nombre"
+        placeholder="Su nombre o razón social"
+        autocomplete="name"
+        class="border-snow/10 bg-titaneo/60 text-snow placeholder-snow/25 focus:border-gold/50 focus:ring-gold/20 w-full rounded-lg border px-4 py-3 text-sm transition-colors duration-200 outline-none focus:ring-1"
+      />
+      <p id="error_nombre" class="text-xs text-red-500"></p>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label
+        for="email"
+        class="text-snow/55 mb-2 block text-xs font-medium tracking-wider uppercase"
+      >
+        Correo Electrónico
+      </label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        placeholder="correo@ejemplo.com"
+        autocomplete="email"
+        class="border-snow/10 bg-titaneo/60 text-snow placeholder-snow/25 focus:border-gold/50 focus:ring-gold/20 w-full rounded-lg border px-4 py-3 text-sm transition-colors duration-200 outline-none focus:ring-1"
+      />
+      <p id="error_email" class="text-xs text-red-500"></p>
+    </div>
+
+    <!-- Role + Phone -->
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div>
+        <label
+          for="cargo"
+          class="text-snow/55 mb-2 block text-xs font-medium tracking-wider uppercase"
+        >
+          Cargo o Rol
+        </label>
+        <div class="relative">
+          <select
+            id="cargo"
+            name="cargo"
+            class="border-snow/10 bg-titaneo/60 text-snow/65 focus:border-gold/50 focus:ring-gold/20 w-full appearance-none rounded-lg border px-4 py-3 pr-10 text-sm transition-colors duration-200 outline-none focus:ring-1"
+          >
+            <option value="" disabled selected>Seleccione su rol</option>
+            <option value="candidato">Candidato</option>
+            <option value="elegido">Funcionario Elegido</option>
+            <option value="partido">Partido Político</option>
+            <option value="ciudadano">Ciudadano / Tercero</option>
+            <option value="entidad">Entidad Pública</option>
+            <option value="otro">Otro</option>
+          </select>
+          <div
+            class="text-gold/50 pointer-events-none absolute top-1/2 right-4 -translate-y-1/2"
+            aria-hidden="true"
+          >
+            <ChevronDown class="h-3 w-3" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label
+          for="telefono"
+          class="text-snow/55 mb-2 block text-xs font-medium tracking-wider uppercase"
+        >
+          Teléfono
+        </label>
+        <input
+          id="telefono"
+          type="tel"
+          name="telefono"
+          value="+57"
+          autocomplete="tel"
+          class="border-snow/10 bg-titaneo/60 text-snow placeholder-snow/25 focus:border-gold/50 focus:ring-gold/20 w-full rounded-lg border px-4 py-3 text-sm transition-colors duration-200 outline-none focus:ring-1"
+        />
+        <p id="error_telefono" class="text-xs text-red-500"></p>
+      </div>
+    </div>
+
+    <!-- Legal matter -->
+    <div>
+      <label
+        for="asunto"
+        class="text-snow/55 mb-2 block text-xs font-medium tracking-wider uppercase"
+      >
+        Asunto Legal
+      </label>
+      <div class="relative">
+        <select
+          id="asunto"
+          name="asunto"
+          class="border-snow/10 bg-titaneo/60 text-snow/65 focus:border-gold/50 focus:ring-gold/20 w-full appearance-none rounded-lg border px-4 py-3 pr-10 text-sm transition-colors duration-200 outline-none focus:ring-1"
+        >
+          <option value="" disabled selected
+            >Seleccione la naturaleza del caso</option
+          >
+          <option value="nulidad">Nulidad Electoral</option>
+          <option value="perdida-investidura">Pérdida de Investidura</option>
+          <option value="asesoria">Asesoría Electoral</option>
+          <option value="control-candidaturas">Control de Candidaturas</option>
+          <option value="otro">Otro</option>
+        </select>
+        <div
+          class="text-gold/50 pointer-events-none absolute top-1/2 right-4 -translate-y-1/2"
+          aria-hidden="true"
+        >
+          <ChevronDown class="h-3 w-3" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Case description -->
+    <div>
+      <label
+        for="mensaje"
+        class="text-snow/55 mb-2 block text-xs font-medium tracking-wider uppercase"
+      >
+        Descripción breve del caso
+      </label>
+      <textarea
+        id="mensaje"
+        name="mensaje"
+        rows="5"
+        placeholder="Proporcione contexto general sin incluir detalles sensibles en este paso inicial..."
+        class="border-snow/10 bg-titaneo/60 text-snow placeholder-snow/25 focus:border-gold/50 focus:ring-gold/20 w-full resize-none rounded-lg border px-4 py-3 text-sm transition-colors duration-200 outline-none focus:ring-1"
+      ></textarea>
+      <p id="error_mensaje" class="text-xs text-red-500"></p>
+    </div>
+
+    <!-- Privacy checkbox -->
+    <div>
+      <label class="flex cursor-pointer items-start gap-3">
+        <input
+          type="checkbox"
+          name="privacidad"
+          class="accent-gold h-4 w-4 rounded-lg"
+          value="true"
+        />
+
+        <span class="text-snow/45 text-xs leading-relaxed">
+          Acepto la
+          <a
+            href="/politica-privacidad/"
+            class="text-gold/70 hover:text-gold underline transition-colors duration-200"
+          >
+            política de privacidad
+          </a>
+          y autorizo el tratamiento de mis datos personales para la gestión de mi
+          consulta.
+        </span>
+      </label>
+      <p id="error_privacidad" class="mt-1 text-xs text-red-500"></p>
+    </div>
+
+    <!-- Submit -->
+    <div class="flex items-center justify-center pt-2">
+      <button
+        id="btn-submit"
+        type="submit"
+        class="bg-gold text-deep-dark hover:bg-gold/90 hover:shadow-gold/15 w-auto cursor-pointer rounded-lg px-8 py-4 text-sm font-semibold tracking-wider uppercase transition-all duration-200 hover:shadow-lg active:scale-95"
+      >
+        Enviar consulta →
+      </button>
+    </div>
+  </form>
 </div>
+
+<script>
+  import { actions, isInputError } from "astro:actions";
+
+  const form = document.querySelector(".contact-form") as HTMLFormElement;
+  const btnSubmit = document.querySelector("#btn-submit") as HTMLButtonElement;
+  const originalBtnHTML = btnSubmit.innerHTML;
+
+  const resetButton = () => {
+    btnSubmit.removeAttribute("disabled");
+    btnSubmit.innerHTML = originalBtnHTML;
+  };
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Clear all error messages
+    const errorElements = document.querySelectorAll('[id^="error_"]');
+    errorElements.forEach((el) => {
+      if (el instanceof HTMLElement) {
+        el.textContent = "";
+      }
+    });
+
+    const formData = new FormData(form);
+
+    // Set loading state
+    btnSubmit.setAttribute("disabled", "true");
+    btnSubmit.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="mr-2 -ml-1 animate-spin w-5 h-5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" class="opacity-25"/><path fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12zm2 5.291A7.96 7.96 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938z" class="opacity-75"/></svg>
+      Enviando...
+    `;
+
+    try {
+      const { error } = await actions.getContact(formData);
+      if (error) {
+        if (isInputError(error)) {
+          // Display validation errors
+          Object.entries(error.fields).forEach(([label, messages]) => {
+            const errorEl = document.querySelector(
+              `#error_${label}`,
+            ) as HTMLParagraphElement;
+            if (errorEl) errorEl.textContent = messages[0];
+          });
+        } else {
+          // Server/API error (e.g., Resend failed)
+          alert(
+            "Hubo un error al enviar el formulario. Por favor, intente nuevamente.",
+          );
+        }
+
+        // Reset button on any error
+        resetButton();
+        return;
+      }
+
+      // Success!
+      btnSubmit.innerHTML = `
+        <svg fill="none" stroke="currentColor" class="w-5 h-5 inline" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 13 4 4L19 7"/>
+        </svg>
+        Enviado
+      `;
+      form.reset();
+
+      // Dispatch success event
+      document.dispatchEvent(new CustomEvent("formSuccess"));
+
+      // Reset button after 3 seconds
+      setTimeout(resetButton, 1000);
+    } catch (error) {
+      // Network or unexpected error
+      console.error(error);
+      alert(
+        "Error de conexión. Por favor, verifique su internet e intente nuevamente.",
+      );
+      resetButton();
+    }
+  });
+</script>

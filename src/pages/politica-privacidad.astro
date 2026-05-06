@@ -1,0 +1,192 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { generateDynamicSEO, COMPANY_INFO } from "@/config/seoConf";
+
+const seoProps = generateDynamicSEO({
+  pageType: "privacy",
+  title: "Política de Privacidad | Tratamiento de Datos Personales",
+  description:
+    "Política de privacidad y tratamiento de datos personales de Buitrago & Villota de acuerdo con la Ley 1581 de 2012 de Colombia.",
+  canonical: "/politica-privacidad",
+});
+
+const lastUpdated = new Date().toLocaleDateString("es-CO", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<MainLayout seoProps={seoProps}>
+  <section class="bg-titaneo py-24 md:py-28 lg:py-32">
+    <div class="mx-auto max-w-3xl px-6 md:px-8">
+
+      <!-- Page Header -->
+      <div class="mb-16 text-center">
+        <div class="mb-6 flex items-center justify-center gap-3">
+          <div class="bg-gold h-px w-10"></div>
+          <span class="text-gold text-xs font-medium tracking-widest uppercase">
+            Información Legal
+          </span>
+          <div class="bg-gold h-px w-10"></div>
+        </div>
+        <h1 class="text-snow mb-4 text-4xl font-normal tracking-tight md:text-5xl">
+          Política de Privacidad
+        </h1>
+        <p class="text-snow/50 text-sm">
+          Tratamiento de datos personales · Ley 1581 de 2012
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-10">
+
+        <!-- Responsable -->
+        <div class="border-snow/10 bg-deep-dark/50 rounded-xl border p-6 md:p-8">
+          <h2 class="text-snow mb-4 text-xl font-normal tracking-tight">
+            Responsable del Tratamiento
+          </h2>
+          <p class="text-snow/70 leading-relaxed">
+            <strong class="text-snow font-medium">{COMPANY_INFO.name} Abogados Electorales</strong>,
+            firma boutique especializada en derecho electoral colombiano, con sede en {COMPANY_INFO.address.city}, {COMPANY_INFO.address.region}, es la responsable del tratamiento de los datos personales recopilados a través de este sitio web.
+          </p>
+        </div>
+
+        <!-- Datos Recopilados -->
+        <div>
+          <h2 class="text-snow mb-5 text-xl font-normal tracking-tight">
+            Datos Recopilados
+          </h2>
+          <p class="text-snow/65 mb-5 text-sm leading-relaxed">
+            A través del formulario de contacto de este sitio web se recopilan los siguientes datos personales:
+          </p>
+          <ul class="space-y-3">
+            {[
+              "Nombre completo o razón social",
+              "Cargo o rol del solicitante",
+              "Número de teléfono de contacto",
+              "Naturaleza del asunto legal consultado",
+              "Descripción general del caso",
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <div class="bg-gold mt-2 h-1.5 w-1.5 shrink-0 rounded-full"></div>
+                <span class="text-snow/65 text-sm leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Finalidad -->
+        <div>
+          <h2 class="text-snow mb-5 text-xl font-normal tracking-tight">
+            Finalidad del Tratamiento
+          </h2>
+          <p class="text-snow/65 mb-5 text-sm leading-relaxed">
+            Los datos personales recopilados serán utilizados exclusivamente para:
+          </p>
+          <ul class="space-y-3">
+            {[
+              "Evaluar y dar respuesta a la consulta legal enviada",
+              "Contactar al titular para coordinar una reunión o consulta inicial",
+              "Gestionar la relación cliente–firma en el marco de la prestación de servicios jurídicos",
+              "Cumplir con obligaciones legales y reglamentarias aplicables al ejercicio de la abogacía",
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <div class="bg-gold mt-2 h-1.5 w-1.5 shrink-0 rounded-full"></div>
+                <span class="text-snow/65 text-sm leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-snow/65 mt-5 text-sm leading-relaxed">
+            Los datos personales no serán vendidos, cedidos ni compartidos con terceros, salvo exigencia legal expresa de autoridad competente o con el consentimiento previo del titular.
+          </p>
+        </div>
+
+        <!-- Confidencialidad -->
+        <div class="border-gold/15 bg-deep-dark/50 rounded-xl border p-6 md:p-8">
+          <h2 class="text-snow mb-4 text-xl font-normal tracking-tight">
+            Confidencialidad y Secreto Profesional
+          </h2>
+          <p class="text-snow/70 text-sm leading-relaxed">
+            Toda la información compartida con {COMPANY_INFO.name} está protegida no solo por las normas de protección de datos personales, sino también por el <strong class="text-snow font-medium">secreto profesional del abogado</strong>, consagrado en el Código Disciplinario del Abogado (Ley 1123 de 2007). Desde la primera consulta, blindamos integralmente la información de nuestros clientes con protocolos de confidencialidad absoluta.
+          </p>
+        </div>
+
+        <!-- Derechos del Titular -->
+        <div>
+          <h2 class="text-snow mb-5 text-xl font-normal tracking-tight">
+            Derechos del Titular
+          </h2>
+          <p class="text-snow/65 mb-5 text-sm leading-relaxed">
+            De conformidad con la Ley 1581 de 2012 y el Decreto 1377 de 2013, el titular de los datos tiene derecho a:
+          </p>
+          <ul class="space-y-3">
+            {[
+              "Conocer, actualizar y rectificar sus datos personales",
+              "Solicitar prueba de la autorización otorgada para el tratamiento",
+              "Ser informado sobre el uso que se ha dado a sus datos",
+              "Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la normativa de protección de datos",
+              "Revocar la autorización y/o solicitar la supresión de sus datos cuando no se respeten los principios, derechos y garantías constitucionales y legales",
+              "Acceder gratuitamente a sus datos personales que hayan sido objeto de tratamiento",
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <div class="bg-gold mt-2 h-1.5 w-1.5 shrink-0 rounded-full"></div>
+                <span class="text-snow/65 text-sm leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div>
+          <h2 class="text-snow mb-5 text-xl font-normal tracking-tight">
+            Ejercicio de Derechos y Contacto
+          </h2>
+          <p class="text-snow/65 mb-5 text-sm leading-relaxed">
+            Para ejercer sus derechos como titular, formular consultas o reclamos relacionados con el tratamiento de sus datos personales, puede comunicarse con nosotros a través del siguiente correo:
+          </p>
+          <div class="border-snow/10 bg-deep-dark/50 rounded-lg border px-5 py-4">
+            <a
+              href={`mailto:${COMPANY_INFO.email}`}
+              class="text-gold hover:text-gold/80 text-sm font-medium transition-colors duration-200"
+            >
+              {COMPANY_INFO.email}
+            </a>
+          </div>
+          <p class="text-snow/40 mt-3 text-xs leading-relaxed">
+            Daremos respuesta a su solicitud dentro de los términos establecidos en la Ley 1581 de 2012.
+          </p>
+        </div>
+
+        <!-- Aceptación -->
+        <div class="border-gold/20 rounded-xl border p-6 md:p-8">
+          <h2 class="text-snow mb-4 text-xl font-normal tracking-tight">
+            Aceptación
+          </h2>
+          <p class="text-snow/65 text-sm leading-relaxed">
+            Al diligenciar y enviar el formulario de contacto de este sitio web, el usuario manifiesta que ha leído, comprendido y aceptado el tratamiento de sus datos personales en los términos descritos en esta política, de conformidad con lo dispuesto en la Ley 1581 de 2012.
+          </p>
+        </div>
+
+        <!-- Última actualización -->
+        <div class="border-snow/10 border-t pt-8 text-center">
+          <p class="text-snow/30 text-xs">
+            Última actualización: {lastUpdated}
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Back link -->
+      <div class="mt-12 text-center">
+        <a
+          href="/"
+          class="text-snow/40 hover:text-gold text-sm transition-colors duration-200"
+        >
+          ← Volver al inicio
+        </a>
+      </div>
+
+    </div>
+  </section>
+</MainLayout>

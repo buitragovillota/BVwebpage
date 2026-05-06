@@ -13,7 +13,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  site: "https://rainbow-chimera-a0fa18.netlify.app",
+  site: "https://dev--rainbow-chimera-a0fa18.netlify.app/",
 
   fonts: [
     {
