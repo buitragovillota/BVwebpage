@@ -107,7 +107,7 @@ export const COMPANY_INFO: CompanyInfo = {
     latitude: 4.711,
     longitude: -74.0721,
   },
-  logo: "/images/logo.svg",
+  logo: "/images/whitelogo.png",
   image: "/images/og-image.png",
   foundingDate: "2015", // TODO: confirmar año exacto (el doc indica >10 años de ejercicio independiente)
   founders: ["Susana Buitrago Valencia", "Luis Fernando Villota Medina"],

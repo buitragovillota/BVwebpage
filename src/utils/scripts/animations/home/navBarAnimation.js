@@ -4,35 +4,78 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const navbarAnimations = () => {
-  const navContainer = document.querySelector("#navbar");
-  const logo = document.querySelector("#logo-container");
+  const navLogo = document.querySelector("#navbar-logo");
+  const navbar = document.querySelector("#navbar");
 
   let mm = gsap.matchMedia();
 
-  mm.add("(min-width: 1023px)", () => {
-    gsap.to(logo, {
-      scrollTrigger: {
-        trigger: navContainer,
-        start: "top top",
-        end: "bottom top",
-        toggleActions: "play none none reverse",
-        markers: false,
+  const scrollTriggerConfig = {
+    trigger: document.body,
+    start: "50px top",
+    end: "+=1",
+    toggleActions: "play none none reverse",
+    markers: false,
+  };
+
+  // Mobile: shrink logo + collapse navbar padding together
+  mm.add("(max-width: 767px)", () => {
+    gsap.fromTo(
+      navLogo,
+      { height: 64 },
+      {
+        height: 48,
+        ease: "power1.inOut",
+        duration: 0.4,
+        scrollTrigger: scrollTriggerConfig,
       },
-      width: "50%",
-      ease: "linear",
-      duration: 0.5,
-    });
+    );
+    gsap.fromTo(
+      navbar,
+      { paddingTop: 8, paddingBottom: 8 },
+      {
+        paddingTop: 4,
+        paddingBottom: 4,
+        ease: "power1.inOut",
+        duration: 0.4,
+        scrollTrigger: scrollTriggerConfig,
+      },
+    );
+  });
+
+  // Desktop (md+): shrink logo + collapse navbar padding together
+  mm.add("(min-width: 768px)", () => {
+    gsap.fromTo(
+      navLogo,
+      { height: 96 },
+      {
+        height: 56,
+        ease: "power1.inOut",
+        duration: 0.4,
+        scrollTrigger: scrollTriggerConfig,
+      },
+    );
+    gsap.fromTo(
+      navbar,
+      { paddingTop: 8, paddingBottom: 8 },
+      {
+        paddingTop: 4,
+        paddingBottom: 4,
+        ease: "power1.inOut",
+        duration: 0.4,
+        scrollTrigger: scrollTriggerConfig,
+      },
+    );
   });
 
   // dropdown menu animation
   const details = document.querySelector("#services-dropdown");
-  if (!details) return;
 
-  // Hover to open/close
-  details.addEventListener("mouseenter", () => (details.open = true));
-  details.addEventListener("mouseleave", () => {
-    details.open = false;
-  });
+  if (details) {
+    details.addEventListener("mouseenter", () => (details.open = true));
+    details.addEventListener("mouseleave", () => {
+      details.open = false;
+    });
+  }
 
   // Mobile menu toggle
   const menuToggle = document.getElementById("mobile-menu-toggle");
