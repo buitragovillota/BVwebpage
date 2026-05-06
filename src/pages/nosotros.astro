@@ -4,7 +4,11 @@ import HeroAbout from "@/components/perpage/aboutUs/HeroAbout.astro";
 import CompetitiveAdvantage from "@/components/perpage/aboutUs/CompetitiveAdvantage.astro";
 import Founders from "@/components/perpage/aboutUs/Founders.astro";
 import Cta from "@/components/global/Cta.astro";
-import { generateDynamicSEO, generateAllAuthorsSchemas } from "@/config/seoConf";
+import {
+  generateDynamicSEO,
+  generateAllAuthorsSchemas,
+  generateBreadcrumbSchema,
+} from "@/config/seoConf";
 
 const aboutSeo = generateDynamicSEO({
   pageType: "about",
@@ -12,9 +16,13 @@ const aboutSeo = generateDynamicSEO({
 });
 
 const authorSchemas = generateAllAuthorsSchemas();
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Inicio", path: "/" },
+  { name: "Nosotros", path: "/nosotros/" },
+]);
 ---
 
-<MainLayout seoProps={aboutSeo} schemas={authorSchemas}>
+<MainLayout seoProps={aboutSeo} schemas={[...authorSchemas, breadcrumbSchema]}>
   <HeroAbout />
   <CompetitiveAdvantage />
   <Founders />
