@@ -1,17 +1,31 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@/components/perpage/contact/ContactSection.astro";
-import { generateDynamicSEO } from "@/config/seoConf";
 import HeroContact from "@/components/perpage/contact/HeroContact.astro";
+import {
+  generateDynamicSEO,
+  LOCAL_BUSINESS_SCHEMA,
+  generateBreadcrumbSchema,
+} from "@/config/seoConf";
+
 const contactoSeo = generateDynamicSEO({
   pageType: "contact",
-  title: "Contacto | Buitrago & Villota — Consulta Confidencial",
+  title: "Contacto | Buitrago & Villota abogados expertos en derecho electoral",
   description:
-    "Inicie su consulta confidencial con Buitrago & Villota. Atención prioritaria en litigios electorales, pérdida de investidura e impugnación de candidaturas.",
+    "Agende una consulta con Buitrago & Villota. Expertos en derecho electoral, nulidades, pérdidas de investidura e impugnación de candidaturas.",
+  canonical: "/contacto/",
 });
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Inicio", path: "/" },
+  { name: "Contacto", path: "/contacto/" },
+]);
 ---
 
-<MainLayout seoProps={contactoSeo}>
+<MainLayout
+  seoProps={contactoSeo}
+  schemas={[LOCAL_BUSINESS_SCHEMA, breadcrumbSchema]}
+>
   <HeroContact />
   <ContactSection />
 </MainLayout>
