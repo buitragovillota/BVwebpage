@@ -4,6 +4,11 @@ import Scales from "@/assets/icons/scales.svg";
 import ArrowUp from "@/assets/icons/arrow-up.svg";
 ---
 
+<script>
+  import { gsapReusableCounter } from "@/utils/scripts/animations/home/statsAnimation.js";
+  gsapReusableCounter();
+</script>
+
 <section
   class="hero-section from-titaneo to-deep-dark relative flex min-h-screen w-full items-center justify-center bg-linear-to-br px-6 py-32 sm:px-8 lg:px-12"
 >
@@ -60,53 +65,60 @@ import ArrowUp from "@/assets/icons/arrow-up.svg";
 
     <!-- Stats Bar -->
     <div
-      class="mt-16 sm:mt-20 lg:absolute lg:right-0 lg:-bottom-60 lg:left-0 lg:mt-24"
+      id="stats-bar"
+      class="invisible mt-16 sm:mt-20 lg:absolute lg:right-0 lg:-bottom-60 lg:left-0 lg:mt-24"
     >
       <div
-        class="bg-snow mx-auto max-w-7xl rounded-3xl p-3 shadow-2xl backdrop-blur-sm"
+        class="bg-titaneo/95 border-gold mx-auto max-w-7xl rounded-3xl border p-3 shadow-2xl backdrop-blur-sm"
       >
-        <div class="flex flex-col gap-8">
-          <!-- Top row: two stats side by side -->
-          <div class="flex flex-col gap-8 sm:flex-row">
-            <!-- Stat 1: Years of Experience -->
-            <div class="flex flex-1 flex-col items-center p-4 text-center">
-              <div
-                class="bg-gold/10 mb-6 flex h-12 w-12 items-center justify-center rounded-full"
-              >
-                <Scales class="text-gold h-8 w-8" />
-              </div>
-              <h3
-                class="text-titaneo mb-1 font-serif text-3xl tracking-tight italic sm:text-4xl"
-              >
-                +10 Años
-              </h3>
-              <p
-                class="text-deep-indigo text-xs font-medium tracking-wider uppercase sm:text-sm"
-              >
-                De Litigio Independiente
-              </p>
+        <ul
+          class="flex flex-col gap-8 sm:flex-row"
+          style="will-change: transform; display: flex;"
+        >
+          <!-- Stat 1: Years of Experience -->
+          <li
+            id="stat1"
+            class="invisible flex flex-1 list-none flex-col items-center p-4 text-center"
+          >
+            <div
+              class="bg-gold/10 mb-6 flex h-12 w-12 items-center justify-center rounded-full"
+            >
+              <Scales class="text-gold h-8 w-8" />
             </div>
+            <h3
+              class="text-snow mb-1 font-serif text-3xl tracking-tight italic sm:text-4xl"
+            >
+              +<span id="yearsCount">0</span> Años
+            </h3>
+            <p
+              class="text-snow/80 text-xs font-medium tracking-wider uppercase sm:text-sm"
+            >
+              De Litigio Independiente
+            </p>
+          </li>
 
-            <!-- Stat 2: Success Rate -->
-            <div class="flex flex-1 flex-col items-center p-4 text-center">
-              <div
-                class="bg-gold/10 mb-6 flex h-12 w-12 items-center justify-center rounded-full"
-              >
-                <ArrowUp class="text-gold h-8 w-8" />
-              </div>
-              <h3
-                class="text-titaneo mb-1 font-serif text-3xl tracking-tight italic sm:text-4xl"
-              >
-                +95%
-              </h3>
-              <p
-                class="text-deep-indigo text-xs font-medium tracking-wider uppercase sm:text-sm"
-              >
-                De Éxito en Procesos
-              </p>
+          <!-- Stat 2: Success Rate -->
+          <li
+            id="stat2"
+            class="invisible flex flex-1 list-none flex-col items-center p-4 text-center"
+          >
+            <div
+              class="bg-gold/10 mb-6 flex h-12 w-12 items-center justify-center rounded-full"
+            >
+              <ArrowUp class="text-gold h-8 w-8" />
             </div>
-          </div>
-        </div>
+            <h3
+              class="text-snow mb-1 font-serif text-3xl tracking-tight italic sm:text-4xl"
+            >
+              +<span id="successCount">0</span>%
+            </h3>
+            <p
+              class="text-snow/80 text-xs font-medium tracking-wider uppercase sm:text-sm"
+            >
+              De Éxito en Procesos
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

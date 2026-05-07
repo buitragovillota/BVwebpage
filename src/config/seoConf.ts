@@ -349,13 +349,6 @@ export const ORGANIZATION_SCHEMA: JSONLDSchema = {
     postalCode: COMPANY_INFO.address.postalCode,
     addressCountry: COMPANY_INFO.address.countryCode,
   },
-  ...(COMPANY_INFO.geo && {
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: COMPANY_INFO.geo.latitude,
-      longitude: COMPANY_INFO.geo.longitude,
-    },
-  }),
   founders: COMPANY_INFO.founders?.map((founder) => ({
     "@type": "Person",
     name: founder,
@@ -372,16 +365,19 @@ export const ORGANIZATION_SCHEMA: JSONLDSchema = {
     description:
       "Servicios especializados en derecho electoral colombiano: nulidad electoral, pérdida de investidura, impugnación de candidaturas y consultoría para partidos políticos",
     itemListElement: services.map((service, index) => ({
-      "@type": "Offer",
+      "@type": "ListItem",
       position: index + 1,
-      itemOffered: {
-        "@type": "Service",
-        "@id": `${COMPANY_INFO.url}/services/${service.slug}#service`,
-        name: service.title,
-        description: service.seoDescription,
-        url: `${COMPANY_INFO.url}/services/${service.slug}`,
-        provider: {
-          "@id": `${COMPANY_INFO.url}#organization`,
+      item: {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          "@id": `${COMPANY_INFO.url}/services/${service.slug}#service`,
+          name: service.title,
+          description: service.seoDescription,
+          url: `${COMPANY_INFO.url}/services/${service.slug}`,
+          provider: {
+            "@id": `${COMPANY_INFO.url}#organization`,
+          },
         },
       },
     })),
@@ -555,11 +551,14 @@ export function generateServiceSchema(service: Service): JSONLDSchema {
           "@type": "OfferCatalog",
           name: `${service.title} - Beneficios`,
           itemListElement: service.benefits.map((benefit, index) => ({
-            "@type": "Offer",
+            "@type": "ListItem",
             position: index + 1,
-            itemOffered: {
-              "@type": "Service",
-              name: benefit,
+            item: {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: benefit,
+              },
             },
           })),
         },
