@@ -22,12 +22,12 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    slug: "nulidad-electoral-doble-militancia",
-    title: "Nulidad Electoral y Doble Militancia",
+    slug: "nulidad-electoral",
+    title: "Nulidad Electoral",
     description:
       "La defensa de una credencial no admite improvisaciones. Representamos a funcionarios electos y candidatos frente a demandas de nulidad por doble militancia, irregularidades en los escrutinios o violaciones al régimen electoral. Entendemos la filigrana de este proceso: atacamos y defendemos con argumentos de peso jurisprudencial para asegurar la estabilidad democrática o la corrección del resultado en las urnas.",
     seoDescription:
-      "Defensa y ataque ante inscripciones irregulares. Protegemos su credencial frente a vicios electorales.",
+      "Defensa y ataque de elecciones, nombramientos e inscripciones irregulares. Protegemos sus intereses y derechos respecto de causales de nulidad electoral, tales como doble militancia, vulneración del régimen de inhabilidades, trashumancia electoral e irregularidades y falsedades en escrutinios.",
     icon: GavelIcon,
     microcopy:
       "Estrategias de litigio probadas ante el máximo tribunal de lo contencioso administrativo.",
@@ -46,7 +46,7 @@ export const services: Service[] = [
     description:
       "El proceso más severo contra la carrera de un servidor público exige una defensa milimétrica. Al tener una connotación disciplinaria y procedimental completamente diferente a la nulidad, abordamos las causales de desinvestidura (tráfico de influencias, inasistencia, conflicto de intereses) estructurando un escudo probatorio implacable. Protegemos su fuero, su trayectoria y su futuro político con el rigor de la alta magistratura.",
     seoDescription:
-      "Intervención de alta complejidad frente a sanciones políticas y procesos disciplinarios severos.",
+      "Intervención de alta complejidad en procesos judiciales que eventualmente impliquen la muerte política, como el trámite sancionatorio más severo para miembros de corporaciones públicas elegidos popularmente.",
     icon: ShieldIcon,
     cta: "Agendar defensa especializada",
     benefits: [
@@ -63,7 +63,7 @@ export const services: Service[] = [
     description:
       "Las elecciones se ganan y se defienden desde antes del día de los comicios. Actuamos con celeridad ante el Consejo Nacional Electoral (CNE) para solicitar la revocatoria de inscripciones de candidaturas irregulares (tanto de oponentes directos como en defensa de los avalados de su partido). Intervenimos estratégicamente en el momento procesal exacto para neutralizar riesgos antes de la jornada electoral.",
     seoDescription:
-      "Intervención ante el CNE para revocatoria de inscripciones irregulares y defensa de avalados.",
+      "Intervención ante el CNE a fin de lograr la revocatoria de inscripciones irregulares; así como la respectiva defensa de quienes han sido avalados.",
     icon: FileTextIcon,
     cta: "Solicitar intervención ante el CNE",
     benefits: [
@@ -80,7 +80,7 @@ export const services: Service[] = [
     description:
       "El aval de un candidato inhabilitado puede costarle sanciones severas a su colectividad. Brindamos asesoría preventiva y asistencia judicial a directorios políticos mediante conceptos electorales vinculantes que analizan inhabilidades y blindan sus postulaciones. Asimismo, guiamos a los nuevos liderazgos en la correcta conformación, recolección de firmas e inscripción de movimientos ciudadanos independientes, asegurando el cumplimiento absoluto de la norma legal.",
     seoDescription:
-      "Blindaje preventivo para candidatos y partidos. Análisis de inhabilidades y requisitos de ley.",
+      "Blindaje preventivo para candidatos y partidos políticos de cara a eventuales procesos de elección. Análisis de inhabilidades y requisitos constitucionales y de ley.",
     icon: CompassIcon,
     microcopy: "El respaldo jurídico preventivo que todo partido necesita.",
     cta: "Blindar candidaturas del partido",
