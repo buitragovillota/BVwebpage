@@ -6,10 +6,7 @@ import BurgerMenu from "@/assets/icons/menu.svg";
 import CloseMenu from "@/assets/icons/close.svg";
 
 const pathname = Astro.url.pathname;
-const currentPath =
-  pathname.endsWith("/") && pathname.length > 1
-    ? pathname.slice(0, -1)
-    : pathname;
+const currentPath = pathname;
 ---
 
 <header

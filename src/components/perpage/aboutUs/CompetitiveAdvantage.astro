@@ -40,7 +40,7 @@ const pillars = [
       <h2
         class="text-titaneo max-w-2xl text-3xl leading-tight font-normal tracking-tight sm:text-4xl lg:text-5xl"
       >
-        El por qué de nuestra firma.
+        Por qué elegir nuestra firma
       </h2>
     </div>
 
@@ -50,15 +50,15 @@ const pillars = [
         pillars.map((pillar, i) => (
           <div
             class:list={[
-              "py-10 md:py-0 md:px-10 lg:px-14",
+              "py-10 md:px-10 md:py-0 lg:px-14",
               i !== pillars.length - 1
-                ? "border-b border-titaneo/15 md:border-b-0 md:border-r"
+                ? "border-titaneo/15 border-b md:border-r md:border-b-0"
                 : "",
               i === 0 ? "md:pl-0" : "",
               i === pillars.length - 1 ? "md:pr-0" : "",
             ]}
           >
-            <h3 class="text-titaneo mb-5 text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
+            <h3 class="text-titaneo mb-5 text-xl leading-snug font-semibold tracking-tight sm:text-2xl">
               {pillar.label}
             </h3>
             <p class="text-deep-indigo/80 text-base leading-relaxed">
