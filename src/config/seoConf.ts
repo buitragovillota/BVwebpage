@@ -92,31 +92,27 @@ export const COMPANY_INFO: CompanyInfo = {
   description:
     "Firma boutique en derecho electoral colombiano. Nulidad electoral, pérdida de investidura e impugnación de candidaturas. +95% de éxito.",
   url: "https://buitragovillota.com", // TODO: confirmar URL definitiva del sitio
-  phone: "+57-000-000-0000", // TODO: reemplazar con número real (WhatsApp Business)
-  email: "buitragovillota.abogados@gmail.com", // TODO: reemplazar con correo institucional real
+  phone: "+57-300-651-0408",
+  email: "buitragovillota.abogados@gmail.com",
   address: {
-    street: "Calle 00 # 00-00", // TODO: reemplazar con dirección física real en Bogotá
+    street: "Kr 13 #85-39",
     city: "Bogotá",
     region: "Bogotá D.C.",
-    postalCode: "110111", // TODO: confirmar código postal de la oficina
+    postalCode: "110221",
     country: "Colombia",
     countryCode: "CO",
   },
   geo: {
-    // TODO: reemplazar con coordenadas exactas (https://www.latlong.net/)
-    latitude: 4.711,
-    longitude: -74.0721,
+    latitude: 4.669909193618351,
+    longitude: -74.05352193278758,
   },
   logo: "/images/whitelogo.png",
   image: "/images/og-image.png",
   foundingDate: "2015", // TODO: confirmar año exacto (el doc indica >10 años de ejercicio independiente)
   founders: ["Susana Buitrago Valencia", "Luis Fernando Villota Medina"],
   socialMedia: {
-    linkedin: "https://linkedin.com/company/buitragovillota", // TODO: reemplazar con perfil real
-    instagram: "https://instagram.com/buitragovillota", // TODO: reemplazar con perfil real
-    facebook: "https://facebook.com/buitragovillota", // TODO: reemplazar con página real
-    // twitter: "",       // TODO: agregar si la firma tiene perfil activo en X/Twitter
-    // googleBusiness: "", // TODO: agregar URL del perfil de Google Business al publicarlo
+    linkedin: "https://www.linkedin.com/in/luis-fernando-villota-medina-878603176/",
+    whatsapp: "https://api.whatsapp.com/send?phone=573006510408&text=Hola%20buen%20d%C3%ADa%2C%0AEstoy%20interesado%2Fa%20en%20sus%20servicios",
   },
 };
 
@@ -547,22 +543,22 @@ export function generateServiceSchema(service: Service): JSONLDSchema {
     }),
     ...(service.benefits &&
       service.benefits.length > 0 && {
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: `${service.title} - Beneficios`,
-          itemListElement: service.benefits.map((benefit, index) => ({
-            "@type": "ListItem",
-            position: index + 1,
-            item: {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: benefit,
-              },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: `${service.title} - Beneficios`,
+        itemListElement: service.benefits.map((benefit, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: benefit,
             },
-          })),
-        },
-      }),
+          },
+        })),
+      },
+    }),
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
