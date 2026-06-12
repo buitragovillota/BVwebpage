@@ -1,4 +1,5 @@
 ---
+import { COMPANY_INFO } from "@/config/seoConf";
 import WhatsAppIcon from "@/assets/icons/whatsapp.svg";
 import ArrowRight from "@/assets/icons/arrow-right.svg";
 import ContactForm from "@/components/ui/form/ContactForm.astro";
@@ -44,7 +45,7 @@ import ContactForm from "@/components/ui/form/ContactForm.astro";
 
         <!-- WhatsApp CTA -->
         <a
-          href="https://wa.me/57"
+          href={COMPANY_INFO.socialMedia.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
           class="bg-gold text-deep-dark hover:bg-gold/90 hover:shadow-gold/20 group mb-4 inline-flex w-full items-center justify-center gap-3 rounded-lg px-6 py-4 text-sm font-semibold tracking-wider uppercase transition-all duration-200 hover:shadow-lg"

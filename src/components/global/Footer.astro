@@ -1,66 +1,73 @@
 ---
 import { Image } from "astro:assets";
 import { COMPANY_INFO } from "@/config/seoConf";
+import { MainNavigation } from "@/utils/navigation";
 import logoShine from "@/assets/images/logoshinewhitecharacters.svg";
+import Logo from "@/assets/images/whitelogo.png";
 
-// Import social media icons
-import InstagramIcon from "@/assets/icons/instagram.svg";
-import TiktokIcon from "@/assets/icons/tiktok.svg";
+// Icons
 import LinkedinIcon from "@/assets/icons/linkedin.svg";
+import WhatsappIcon from "@/assets/icons/whatsapp.svg";
+import PhoneIcon from "@/assets/icons/phone.svg";
+import MailIcon from "@/assets/icons/mail.svg";
 
 const currentYear = new Date().getFullYear();
 
 // Social media links
 const socialLinks = [
   {
-    name: "Instagram",
-    icon: InstagramIcon,
-    url: COMPANY_INFO.socialMedia.instagram || "#",
-  },
-  {
-    name: "TikTok",
-    icon: TiktokIcon,
-    url: COMPANY_INFO.socialMedia.tiktok || "#",
-  },
-  {
     name: "LinkedIn",
     icon: LinkedinIcon,
     url: COMPANY_INFO.socialMedia.linkedin || "#",
   },
 ];
+
+// Contact channels
+const contactLinks = [
+  {
+    name: "Teléfono",
+    label: COMPANY_INFO.phone,
+    icon: PhoneIcon,
+    url: `tel:${COMPANY_INFO.phone}`,
+    external: false,
+  },
+  {
+    name: "Correo electrónico",
+    label: COMPANY_INFO.email,
+    icon: MailIcon,
+    url: `mailto:${COMPANY_INFO.email}`,
+    external: false,
+  },
+  {
+    name: "WhatsApp",
+    label: "Escríbanos por WhatsApp",
+    icon: WhatsappIcon,
+    url: COMPANY_INFO.socialMedia.whatsapp || "#",
+    external: true,
+  },
+];
 ---
 
 <footer class="bg-titaneo border-gold/10 border-t">
-  <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">
-    <div
-      class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-12 lg:gap-8"
-    >
-      <!-- Left Section: Logo, Tagline & Social Media -->
-      <div class="lg:col-span-5">
-        <!-- Logo -->
-        <div id="logo-container" class="mb-4 flex items-center gap-2">
-          <a href="/" aria-label="inicio">
-            <!-- <Image src={Logo} alt="LogoExploenergy" class="w-40 md:w-56" priority /> -->
-            <h1
-              class="text-gold border-gold rounded-full border p-2 text-2xl font-bold"
-            >
-              BV
-            </h1>
-          </a>
-          <p
-            class="text-snow transition-transform duration-300 group-open:rotate-180"
-          >
-            Buitrago & Villota
-          </p>
-        </div>
+  <div class="mx-auto max-w-7xl px-6 py-12 lg:px-2">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12">
+      <!-- Column 1: Logo, Description & Social Media -->
+      <div class="md:col-span-2 lg:col-span-4">
+        <a href="/" aria-label="inicio" class="inline-block">
+          <Image
+            src={Logo}
+            alt="Logo Buitrago & Villota derecho electoral"
+            class="h-24 w-auto object-contain"
+            priority
+          />
+        </a>
 
-        <!-- Tagline -->
-        <p class="text-snow/80 mb-8 max-w-xs text-base leading-relaxed">
+        <p class="text-snow/80 mt-4 max-w-md text-base leading-relaxed">
           {COMPANY_INFO.description}
         </p>
 
         <!-- Social Media Icons -->
-        <div class="flex items-center gap-4">
+        <div class="mt-6 flex items-center gap-4">
           {
             socialLinks.map((social) => (
               <a
@@ -77,33 +84,55 @@ const socialLinks = [
         </div>
       </div>
 
-      <!-- Right Section: Contacts -->
-      <div class="lg:col-span-3">
+      <!-- Column 2: Contact -->
+      <div class="lg:col-span-4">
         <h3 class="text-gold mb-6 text-xl font-semibold tracking-wide">
           Contacto
         </h3>
-        <div class="space-y-4">
-          <!-- Email -->
-          <a
-            href={`mailto:${COMPANY_INFO.email}`}
-            class="text-snow/70 hover:text-gold block text-base transition-colors duration-200"
-          >
-            {COMPANY_INFO.email}
-          </a>
+        <ul class="space-y-4">
+          {
+            contactLinks.map((contact) => (
+              <li>
+                <a
+                  href={contact.url}
+                  aria-label={contact.name}
+                  target={contact.external ? "_blank" : undefined}
+                  rel={contact.external ? "noopener noreferrer" : undefined}
+                  class="group text-snow/70 hover:text-gold inline-flex items-center gap-3 text-base transition-colors duration-200"
+                >
+                  <contact.icon class="text-gold/60 group-hover:text-gold h-5 w-5 shrink-0 transition-colors duration-200" />
+                  <span>{contact.label}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
 
-          <!-- Phone -->
-          <a
-            href={`tel:${COMPANY_INFO.phone}`}
-            class="text-snow/70 hover:text-gold block text-base transition-colors duration-200"
-          >
-            {COMPANY_INFO.phone}
-          </a>
-        </div>
+      <!-- Column 3: Navigation Links -->
+      <div class="lg:col-span-4">
+        <h3 class="text-gold mb-6 text-xl font-semibold tracking-wide">
+          Enlaces
+        </h3>
+        <ul class="space-y-4">
+          {
+            MainNavigation.map((item) => (
+              <li>
+                <a
+                  href={item.path}
+                  class="text-snow/70 hover:text-gold inline-block text-base transition-colors duration-200"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </div>
 
     <!-- Bottom Section: Copyright -->
-    <div class="border-gold/10 mt-8 border-t pt-8 lg:mt-12">
+    <div class="border-gold/10 mt-8 border-t lg:mt-12">
       <div
         class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row sm:gap-6"
       >
