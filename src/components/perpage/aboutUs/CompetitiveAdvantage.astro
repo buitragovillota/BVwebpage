@@ -45,12 +45,12 @@ const pillars = [
     </div>
 
     <!-- Three columns — "Our Story" editorial layout -->
-    <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
+    <div id="advantage-pillars" class="grid grid-cols-1 gap-5 lg:grid-cols-3">
       {
         pillars.map((pillar, i) => (
           <div
             class:list={[
-              "py-10 lg:px-14 lg:py-0",
+              "advantage-card invisible py-10 will-change-transform lg:px-14 lg:py-0",
               i !== pillars.length - 1
                 ? "border-titaneo/15 border-b lg:border-r lg:border-b-0"
                 : "",
@@ -73,3 +73,8 @@ const pillars = [
     <div class="bg-titaneo/10 mt-16 h-px w-full lg:mt-20"></div>
   </div>
 </section>
+
+<script>
+  import { competitiveAdvantageAnimation } from "@/utils/scripts/animations/aboutUs/competitiveAdvantageAnimation.js";
+  competitiveAdvantageAnimation();
+</script>

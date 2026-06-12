@@ -22,7 +22,7 @@ const luis = AUTHORS[1];
 
     <!-- Image — left on lg -->
     <div
-      class="relative h-96 overflow-hidden md:aspect-4/3 md:h-auto lg:aspect-auto lg:h-full lg:min-h-screen"
+      class="founder1-image invisible relative h-96 overflow-hidden md:aspect-4/3 md:h-auto lg:aspect-auto lg:h-full lg:min-h-screen"
     >
       <Image
         src={lawyerwomen}
@@ -44,7 +44,7 @@ const luis = AUTHORS[1];
 
     <!-- Content — right on lg -->
     <div
-      class="relative z-10 px-6 py-16 sm:px-8 lg:-ml-24 lg:max-w-2xl lg:px-12 lg:py-24"
+      class="founder1-content invisible relative z-10 px-6 py-16 sm:px-8 lg:-ml-24 lg:max-w-2xl lg:px-12 lg:py-24"
     >
       <!-- Eyebrow -->
       <div class="mb-8 flex items-center gap-4">
@@ -60,10 +60,13 @@ const luis = AUTHORS[1];
         {susana.name}
       </h2>
       <p class="text-gold mb-8 text-xs font-semibold tracking-widest uppercase">
-        Socia Fundadora · Ex Magistrada titular de la Sección Quinta del Consejo de Estado
+        Socia Fundadora · Ex Magistrada titular de la Sección Quinta del Consejo
+        de Estado
       </p>
 
-      <div class="text-snow/75 mb-8 space-y-4 text-base leading-relaxed sm:text-lg">
+      <div
+        class="text-snow/75 mb-8 space-y-4 text-base leading-relaxed sm:text-lg"
+      >
         {susana.fullBio?.map((paragraph) => <p>{paragraph}</p>)}
       </div>
 
@@ -96,7 +99,7 @@ const luis = AUTHORS[1];
 
     <!-- Content — left on lg (reversed layout) -->
     <div
-      class="relative z-10 order-2 px-6 py-16 sm:px-8 lg:order-1 lg:-mr-24 lg:max-w-2xl lg:px-16 lg:py-24"
+      class="founder2-content invisible relative z-10 order-2 px-6 py-16 sm:px-8 lg:order-1 lg:-mr-24 lg:max-w-2xl lg:px-16 lg:py-24"
     >
       <div class="mb-8 flex items-center gap-4">
         <div class="bg-gold h-px w-10"></div>
@@ -111,10 +114,13 @@ const luis = AUTHORS[1];
         {luis.name}
       </h2>
       <p class="text-gold mb-8 text-xs font-semibold tracking-widest uppercase">
-        Socio Fundador · Ex Magistrado Auxiliar de la Sección Quinta del Consejo de Estado
+        Socio Fundador · Ex Magistrado Auxiliar de la Sección Quinta del Consejo
+        de Estado
       </p>
 
-      <div class="text-snow/75 mb-8 space-y-4 text-base leading-relaxed sm:text-lg">
+      <div
+        class="text-snow/75 mb-8 space-y-4 text-base leading-relaxed sm:text-lg"
+      >
         {luis.fullBio?.map((paragraph) => <p>{paragraph}</p>)}
       </div>
 
@@ -132,7 +138,7 @@ const luis = AUTHORS[1];
 
     <!-- Image — right on lg -->
     <div
-      class="relative order-1 h-96 overflow-hidden md:aspect-4/3 md:h-auto lg:order-2 lg:aspect-auto lg:h-full lg:min-h-screen"
+      class="founder2-image invisible relative order-1 h-96 overflow-hidden md:aspect-4/3 md:h-auto lg:order-2 lg:aspect-auto lg:h-full lg:min-h-screen"
     >
       <Image
         src={lawyermen}
@@ -153,3 +159,9 @@ const luis = AUTHORS[1];
     </div>
   </div>
 </section>
+
+<script>
+  import { foundersAnimation } from "../../../utils/scripts/animations/aboutUs/foundersAnimation.js";
+
+  foundersAnimation();
+</script>

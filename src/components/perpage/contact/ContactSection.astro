@@ -20,9 +20,11 @@ import ContactForm from "@/components/ui/form/ContactForm.astro";
 
   <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
     <!-- Two-column layout -->
-    <div class="grid grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-10">
+    <div
+      class="contact-section grid grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-10"
+    >
       <!-- Left Column: Cómo contactarnos -->
-      <div class="lg:col-span-4 lg:pt-2">
+      <div class="left-content invisible lg:col-span-4 lg:pt-2">
         <div class="mb-6 flex items-center gap-3">
           <div class="bg-gold h-px w-8"></div>
           <span class="text-gold text-xs font-medium tracking-widest uppercase"
@@ -59,9 +61,15 @@ import ContactForm from "@/components/ui/form/ContactForm.astro";
       </div>
 
       <!-- Right Column: Contact Form Card -->
-      <div class="lg:col-span-8">
+      <div class="right-form invisible lg:col-span-8">
         <ContactForm />
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  import { contactSectionAnimation } from "@/utils/scripts/animations/contact/contactSectionAnimation";
+
+  contactSectionAnimation();
+</script>
