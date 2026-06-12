@@ -21,7 +21,9 @@ const luis = AUTHORS[1];
     </div>
 
     <!-- Image — left on lg -->
-    <div class="relative h-96 overflow-hidden lg:h-full lg:min-h-screen">
+    <div
+      class="relative h-96 overflow-hidden md:aspect-4/3 md:h-auto lg:aspect-auto lg:h-full lg:min-h-screen"
+    >
       <Image
         src={lawyerwomen}
         alt={`${susana.name} — ${susana.role}`}
@@ -130,7 +132,7 @@ const luis = AUTHORS[1];
 
     <!-- Image — right on lg -->
     <div
-      class="relative order-1 h-96 overflow-hidden lg:order-2 lg:h-full lg:min-h-screen"
+      class="relative order-1 h-96 overflow-hidden md:aspect-4/3 md:h-auto lg:order-2 lg:aspect-auto lg:h-full lg:min-h-screen"
     >
       <Image
         src={lawyermen}

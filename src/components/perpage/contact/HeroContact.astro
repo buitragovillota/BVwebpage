@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <section
@@ -18,15 +19,19 @@
     <!-- Eyebrow -->
     <div class="mb-8 flex items-center justify-center gap-3">
       <div class="bg-gold h-px w-12"></div>
-      <p class="text-gold text-xs font-medium tracking-widest uppercase sm:text-sm">
-        Proteja su carrera política, su elección y la integridad de su partido con los expertos
+      <p
+        class="text-gold text-xs font-medium tracking-widest uppercase sm:text-sm"
+      >
+        Proteja su carrera política, su elección y la integridad de su partido
+        con los expertos
       </p>
       <div class="bg-gold h-px w-12"></div>
     </div>
 
     <!-- Main heading -->
     <h1
-      class="text-snow mb-8 text-5xl leading-tight font-normal tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+      id="hero-heading"
+      class="text-snow invisible mb-8 text-5xl leading-tight font-normal tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
     >
       Inicie su
       <span class="text-gold block italic">Consulta</span>
@@ -34,10 +39,16 @@
 
     <!-- Intro paragraph -->
     <p
-      class="text-snow/75 mx-auto max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl"
+      id="hero-subtitle"
+      class="text-snow/75 invisible mx-auto max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl"
     >
       Cada trámite electoral tiene su respectivo calendario y, por tanto, se
       debe actuar de manera ágil, oportuna y eficiente. Contáctenos hoy.
     </p>
   </div>
 </section>
+
+<script>
+  import { heroContactAnimation } from "@/utils/scripts/animations/contact/heroContactAnimation.js";
+  heroContactAnimation();
+</script>

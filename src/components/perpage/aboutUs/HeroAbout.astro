@@ -19,7 +19,7 @@ import ArrowRight from "@/assets/icons/arrow-right.svg";
 
   <div class="relative z-10 mx-auto w-full max-w-7xl">
     <!-- Eyebrow -->
-    <div class="mb-10 flex items-center gap-4">
+    <div class="mb-5 flex items-center gap-4">
       <div class="bg-gold h-px w-16"></div>
       <p class="text-gold text-xs font-semibold tracking-widest uppercase">
         La Firma
@@ -29,19 +29,20 @@ import ArrowRight from "@/assets/icons/arrow-right.svg";
     <!-- Headline -->
     <div>
       <h1
-        class="text-snow text-4xl leading-none font-normal tracking-tight sm:text-5xl lg:text-8xl"
+        id="hero-heading"
+        class="text-snow invisible text-4xl leading-tight font-normal tracking-tight sm:text-5xl lg:text-8xl"
       >
         Más que litigantes,
-        <br />
-        <span class="text-gold italic">estrategas</span> de derecho
-        <br />
-        electoral.
+        <span class="text-gold italic">estrategas</span> de derecho electoral.
       </h1>
     </div>
 
     <!-- Description block: below H1 -->
     <div class="mt-12 max-w-2xl">
-      <p class="text-snow/70 mb-8 text-base leading-relaxed sm:text-lg">
+      <p
+        id="hero-subtitle"
+        class="text-snow/70 invisible mb-8 text-base leading-relaxed sm:text-lg"
+      >
         En <span class="text-gold font-semibold">Buitrago &amp; Villota</span> no
         improvisamos. Estructuramos la defensa o la impugnación que usted requiera,
         a nivel judicial o ante la autoridad electoral, con el mayor rigor <span
@@ -52,8 +53,9 @@ import ArrowRight from "@/assets/icons/arrow-right.svg";
         contundentes.
       </p>
       <a
+        id="hero-cta"
         href="/contacto"
-        class="group text-titaneo bg-gold hover:bg-gold/90 hover:shadow-gold/20 inline-flex w-fit items-center gap-3 rounded-full px-6 py-3 text-sm tracking-wide capitalize transition-all duration-300 hover:shadow-2xl sm:text-base"
+        class="group text-titaneo bg-gold hover:bg-gold/90 hover:shadow-gold/20 invisible inline-flex w-fit items-center gap-3 rounded-full px-6 py-3 text-sm tracking-wide capitalize transition-all duration-300 hover:shadow-2xl sm:text-base"
       >
         Agendar consulta
         <ArrowRight
@@ -66,3 +68,8 @@ import ArrowRight from "@/assets/icons/arrow-right.svg";
     <div class="bg-gold/20 mt-20 h-px w-full"></div>
   </div>
 </section>
+
+<script>
+  import { heroAboutAnimation } from "@/utils/scripts/animations/aboutUs/heroAboutAnimation.js";
+  heroAboutAnimation();
+</script>
