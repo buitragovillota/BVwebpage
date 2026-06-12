@@ -4,11 +4,6 @@ import Scales from "@/assets/icons/scales.svg";
 import ArrowUp from "@/assets/icons/arrow-up.svg";
 ---
 
-<script>
-  import { gsapReusableCounter } from "@/utils/scripts/animations/home/statsAnimation.js";
-  gsapReusableCounter();
-</script>
-
 <section
   class="hero-section from-titaneo to-deep-dark relative flex min-h-screen w-full items-center justify-center bg-linear-to-br px-6 py-32 sm:px-8 lg:px-12"
 >
@@ -37,7 +32,8 @@ import ArrowUp from "@/assets/icons/arrow-up.svg";
     <!-- Main heading -->
     <div class="flex flex-col items-center justify-center">
       <h1
-        class="text-snow mb-8 text-5xl leading-tight font-normal tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+        id="hero-heading"
+        class="text-snow invisible mb-8 text-5xl leading-tight font-normal tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
       >
         Excelencia iuris en
         <span class="text-gold block italic">derecho electoral.</span>
@@ -45,7 +41,8 @@ import ArrowUp from "@/assets/icons/arrow-up.svg";
 
       <!-- Description -->
       <p
-        class="text-snow/80 mx-auto mb-12 max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl"
+        id="hero-subtitle"
+        class="text-snow/80 invisible mx-auto mb-12 max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl"
       >
         Expertos en defensa e impugnación electoral y nombramientos de altos
         dignatarios del Estado.
@@ -53,8 +50,9 @@ import ArrowUp from "@/assets/icons/arrow-up.svg";
 
       <!-- CTA Button -->
       <a
+        id="hero-cta"
         href="/contacto"
-        class="group bg-gold text-titaneo hover:bg-gold/90 hover:shadow-gold/20 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm tracking-wide capitalize transition-all duration-300 hover:shadow-2xl sm:gap-3 sm:px-6 sm:text-base"
+        class="group bg-gold text-titaneo hover:bg-gold/90 hover:shadow-gold/20 invisible inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm tracking-wide capitalize transition-all duration-300 hover:shadow-2xl sm:gap-3 sm:px-6 sm:text-base"
       >
         Agendar consulta
         <ArrowRight
@@ -123,3 +121,10 @@ import ArrowUp from "@/assets/icons/arrow-up.svg";
     </div>
   </div>
 </section>
+
+<script>
+  import { gsapReusableCounter } from "@/utils/scripts/animations/home/statsAnimation.js";
+  import { heroHomeAnimation } from "@/utils/scripts/animations/home/heroHomeAnimation.js";
+  heroHomeAnimation();
+  gsapReusableCounter();
+</script>

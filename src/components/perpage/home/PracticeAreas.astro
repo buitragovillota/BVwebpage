@@ -36,6 +36,7 @@ const practiceAreas = services.map((service) => ({
 
     <!-- Cards Grid -->
     <div
+      id="practice-areas"
       class="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8"
     >
       {
@@ -44,6 +45,7 @@ const practiceAreas = services.map((service) => ({
             title={area.title}
             description={area.description}
             icon={area.icon}
+            class="practice-card invisible will-change-transform"
           />
         ))
       }
@@ -61,3 +63,8 @@ const practiceAreas = services.map((service) => ({
     </CTA>
   </div>
 </section>
+
+<script>
+  import { practiceAreasAnimation } from "@/utils/scripts/animations/home/practiceAreasAnimation.js";
+  practiceAreasAnimation();
+</script>

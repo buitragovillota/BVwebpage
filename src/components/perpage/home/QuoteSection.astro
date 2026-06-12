@@ -15,14 +15,18 @@ import QuoteOpenIcon from "@/assets/icons/quote-open.svg";
 
       <!-- Main Quote Heading -->
       <h2
-        class="text-titaneo mb-8 text-4xl leading-tight font-normal tracking-tight md:text-4xl lg:text-5xl"
+        id="quote-heading"
+        class="text-titaneo invisible mb-8 text-4xl leading-tight font-normal tracking-tight will-change-transform md:text-4xl lg:text-5xl"
       >
         Precisión y éxito en la impugnación y defensa de elecciones o
         nombramientos; así como en la inscripción de candidaturas.
       </h2>
 
       <!-- Description Text -->
-      <div class="text-deep-indigo mx-auto max-w-2xl text-lg leading-relaxed">
+      <div
+        id="quote-subtitle"
+        class="text-deep-indigo invisible mx-auto max-w-2xl text-lg leading-relaxed will-change-transform"
+      >
         <p class="font-sans">
           Una candidatura, elección o nombramiento no puede dejarse al azar. En <span
             class="text-titaneo font-medium italic">Buitrago & Villota</span
@@ -47,3 +51,8 @@ import QuoteOpenIcon from "@/assets/icons/quote-open.svg";
   >
   </div>
 </section>
+
+<script>
+  import { quoteHomeAnimation } from "@/utils/scripts/animations/home/quoteHomeAnimation";
+  quoteHomeAnimation();
+</script>

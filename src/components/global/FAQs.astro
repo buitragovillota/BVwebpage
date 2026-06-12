@@ -16,33 +16,33 @@ const {
 } = Astro.props;
 ---
 
-<section class="faq-section bg-snow w-full py-16 md:py-24">
+<section id="faqs" class="faq-section bg-snow w-full py-16 md:py-24">
   <div class="mx-auto max-w-4xl px-4">
     <!-- Header -->
-    <div class="mb-12 text-center">
+    <div class="header-section mb-12 text-center">
       <h2
-        class="text-titaneo mb-4 text-3xl leading-tight font-medium md:text-4xl lg:text-5xl"
+        class="text-titaneo invisible mb-4 text-3xl leading-tight font-medium md:text-4xl lg:text-5xl"
       >
         {title}
       </h2>
       {
         subtitle && (
-          <p class="text-gold mx-auto max-w-2xl text-base md:text-lg">
+          <p class="text-gold invisible mx-auto max-w-2xl text-base md:text-lg">
             {subtitle}
           </p>
         )
       }
-      <span class="text-titaneo mx-auto block max-w-2xl text-base">
+      <span class="text-titaneo invisible mx-auto block max-w-2xl text-base">
         Resolvemos las inquietudes iniciales sobre nuestro modelo de
         representación, alcance y protocolos de confidencialidad.
       </span>
     </div>
 
     <!-- FAQ Accordion -->
-    <div class="space-y-4">
+    <div class="faq-accordion space-y-4">
       {
         faqs.map((faq) => (
-          <details class="group border-gold/30 overflow-hidden rounded-xl border bg-white backdrop-blur-sm">
+          <details class="group border-gold/30 invisible overflow-hidden rounded-xl border bg-white backdrop-blur-sm will-change-transform">
             <summary class="text-titaneo hover:bg-gold/5 flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-lg font-medium transition-colors duration-200 md:text-xl">
               <span class="pr-4 text-left">{faq.question}</span>
               <span class="border-gold text-gold flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition-transform duration-300 group-open:rotate-45">
@@ -93,3 +93,9 @@ const {
     border-bottom: 1px solid oklch(0.8089 0.1566 80.71 / 0.15);
   }
 </style>
+
+<script>
+  import { faqsComponentAnimation } from "../../utils/scripts/animations/faqsComponentAnimation.js";
+
+  faqsComponentAnimation();
+</script>

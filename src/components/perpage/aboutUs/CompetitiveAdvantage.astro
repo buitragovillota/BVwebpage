@@ -45,17 +45,17 @@ const pillars = [
     </div>
 
     <!-- Three columns — "Our Story" editorial layout -->
-    <div class="grid grid-cols-1 gap-0 md:grid-cols-3">
+    <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
       {
         pillars.map((pillar, i) => (
           <div
             class:list={[
-              "py-10 md:px-10 md:py-0 lg:px-14",
+              "py-10 lg:px-14 lg:py-0",
               i !== pillars.length - 1
-                ? "border-titaneo/15 border-b md:border-r md:border-b-0"
+                ? "border-titaneo/15 border-b lg:border-r lg:border-b-0"
                 : "",
-              i === 0 ? "md:pl-0" : "",
-              i === pillars.length - 1 ? "md:pr-0" : "",
+              i === 0 ? "lg:pl-0" : "",
+              i === pillars.length - 1 ? "lg:pr-0" : "",
             ]}
           >
             <h3 class="text-titaneo mb-5 text-xl leading-snug font-semibold tracking-tight sm:text-2xl">
