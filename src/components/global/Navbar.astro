@@ -1,9 +1,142 @@
 ---
+import { MainNavigation } from "@/utils/navigation";
+import { Image } from "astro:assets";
+import Logo from "@/assets/images/whitelogo.png";
+import BurgerMenu from "@/assets/icons/menu.svg";
+import CloseMenu from "@/assets/icons/close.svg";
 
+const pathname = Astro.url.pathname;
+const currentPath = pathname;
 ---
 
-<header>
-  <nav>
-    <h1>NavBar</h1>
+<header
+  class="nav-container bg-titaneo/85 border-gold/10 fixed top-0 right-0 left-0 z-50 w-full border-b shadow-lg backdrop-blur-sm"
+>
+  <nav
+    id="navbar"
+    class="nav-content mx-auto flex max-w-7xl items-center justify-between py-2"
+  >
+    <!-- Logo -->
+    <div id="logo-container" class="flex items-center gap-2 pl-8">
+      <a href="/" aria-label="inicio">
+        <Image
+          id="navbar-logo"
+          src={Logo}
+          alt="Logo Buitrago & Villota"
+          class="h-16 w-auto md:h-24"
+          priority
+        />
+      </a>
+    </div>
+    <!-- end Logo -->
+
+    <!-- Right side navigation -->
+    <div class="flex items-center gap-6 pr-2 md:pr-8">
+      <!-- Desktop links (hidden on mobile) -->
+      <div id="desktop-nav" class="hidden items-center gap-6 md:flex">
+        {
+          MainNavigation.filter((item) => item.path !== "/contacto/").map(
+            (item) => (
+              <a
+                href={item.path}
+                class={`nav-link hover:text-gold text-lg transition-colors duration-200 ${
+                  currentPath === item.path ? "text-gold" : "text-snow"
+                }`}
+                aria-current={item.path === currentPath ? "page" : undefined}
+              >
+                {item.name}
+              </a>
+            ),
+          )
+        }
+      </div>
+      <!-- end Desktop links -->
+
+      <!-- Contacto link (always visible) -->
+      <div class="flex items-center gap-1">
+        <a
+          href="/contacto/"
+          class="nav-link text-deep-dark bg-gold hover:bg-gold/80 rounded-full px-4 py-2 transition-colors hover:backdrop-blur-sm"
+          >Contacto</a
+        >
+
+        <!-- Burger menu (mobile only) -->
+        <button
+          id="mobile-menu-toggle"
+          class="bg-deep-indigo text-snow flex size-9 items-center justify-center rounded-full text-sm disabled:pointer-events-none disabled:opacity-50 md:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Abrir menú"
+        >
+          <BurgerMenu id="menu-icon-open" class="h-4 w-4" />
+          <CloseMenu id="menu-icon-close" class="hidden h-4 w-4" />
+        </button>
+      </div>
+    </div>
+    <!-- end Right side navigation -->
   </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="bg-deep-dark pointer-events-none fixed inset-x-0 top-0 z-40 flex max-h-[85vh] -translate-y-full transform flex-col overflow-hidden rounded-b-3xl border-b border-white/10 opacity-0 shadow-2xl transition-all duration-300 ease-out md:hidden"
+  >
+    <!-- Header -->
+    <div
+      class="flex shrink-0 items-center justify-between border-b border-white/10 px-6 py-5"
+    >
+      <a href="/" aria-label="inicio" data-menu-link>
+        <Image
+          src={Logo}
+          alt="Logo Buitrago & Villota"
+          class="h-16 w-auto"
+          priority
+        />
+      </a>
+      <div class="flex items-center gap-3">
+        <a
+          href="/contacto"
+          class="text-deep-dark bg-gold hover:bg-gold/80 rounded-full px-2 py-1 text-sm font-semibold transition-colors active:scale-95"
+          data-menu-link
+        >
+          Contacto
+        </a>
+        <button
+          id="mobile-menu-close"
+          class="text-snow flex size-10 items-center justify-center rounded-full bg-white/5 transition-all hover:bg-white/10 active:scale-95"
+          aria-label="Cerrar menú"
+        >
+          <CloseMenu class="h-5 w-5" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="flex-1 overflow-y-auto overscroll-contain px-6 py-4">
+      {
+        MainNavigation.filter((item) => item.path !== "/contacto/").map(
+          (item) => (
+            <a
+              href={item.path}
+              class={`mb-1 block rounded-lg px-3 py-3.5 text-base transition-all duration-200 ${
+                currentPath === item.path
+                  ? "bg-gold/10 text-gold"
+                  : "text-snow/90 hover:text-snow hover:bg-white/5"
+              }`}
+              aria-current={item.path === currentPath ? "page" : undefined}
+              data-menu-link
+            >
+              {item.name}
+            </a>
+          ),
+        )
+      }
+    </div>
+  </div>
 </header>
+
+<script>
+  import { navbarAnimations } from "@/utils/scripts/animations/home/navBarAnimation";
+
+  navbarAnimations();
+</script>

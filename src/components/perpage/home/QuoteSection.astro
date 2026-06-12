@@ -1,0 +1,58 @@
+---
+import QuoteOpenIcon from "@/assets/icons/quote-open.svg";
+---
+
+<section class="bg-snow relative overflow-hidden py-24 lg:py-40">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="mx-auto max-w-4xl text-center">
+      <!-- Decorative Quote Icon -->
+
+      <div class="mb-8 flex justify-center">
+        <div class="text-gold text-6xl leading-none" aria-hidden="true">
+          <QuoteOpenIcon class="h-12 w-12" />
+        </div>
+      </div>
+
+      <!-- Main Quote Heading -->
+      <h2
+        id="quote-heading"
+        class="text-titaneo invisible mb-8 text-4xl leading-tight font-normal tracking-tight will-change-transform md:text-4xl lg:text-5xl"
+      >
+        Precisión y éxito en la impugnación y defensa de elecciones o
+        nombramientos; así como en la inscripción de candidaturas.
+      </h2>
+
+      <!-- Description Text -->
+      <div
+        id="quote-subtitle"
+        class="text-deep-indigo invisible mx-auto max-w-2xl text-lg leading-relaxed will-change-transform"
+      >
+        <p class="font-sans">
+          Una candidatura, elección o nombramiento no puede dejarse al azar. En <span
+            class="text-titaneo font-medium italic">Buitrago & Villota</span
+          > actuamos con altos estándares de calidad y compromiso para asegurar que
+          la impugnación o la defensa, según sus intereses, sea sólida, eficaz, técnica
+          y coherente con las exigencias actuales de la ley electoral; así como de
+          la jurisprudencia actual y aplicable.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Background Elements -->
+  <div
+    class="bg-gold/5 pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="bg-deep-indigo/5 pointer-events-none absolute -right-24 -bottom-24 h-96 w-96 rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+</section>
+
+<script>
+  import { quoteHomeAnimation } from "@/utils/scripts/animations/home/quoteHomeAnimation";
+  quoteHomeAnimation();
+</script>

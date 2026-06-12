@@ -1,0 +1,70 @@
+---
+import { services } from "@/config/services";
+import ServiceCard from "@/components/ui/cards/ServiceCard.astro";
+import CTA from "@/components/global/Cta.astro";
+
+const practiceAreas = services.map((service) => ({
+  title: service.title,
+  description: service.seoDescription,
+  icon: service.icon,
+  slug: service.slug,
+  cta: service.cta,
+}));
+---
+
+<section class="bg-snow px-6 py-20 md:px-12 lg:px-20">
+  <div class="mx-auto max-w-7xl">
+    <!-- Header -->
+    <div
+      class="mb-16 flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end"
+    >
+      <div>
+        <p class="text-gold mb-3 text-sm font-medium tracking-wider uppercase">
+          Especialidades
+        </p>
+        <h2 class="text-titaneo text-4xl md:text-5xl lg:text-6xl">
+          Áreas de Práctica
+        </h2>
+      </div>
+      <div class="max-w-md">
+        <p class="text-deep-indigo/50 text-base leading-relaxed lg:text-right">
+          Enfoque exclusivo y altamente especializado en derecho electoral e
+          institucional.
+        </p>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div
+      id="practice-areas"
+      class="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8"
+    >
+      {
+        practiceAreas.map((area) => (
+          <ServiceCard
+            title={area.title}
+            description={area.description}
+            icon={area.icon}
+            class="practice-card invisible will-change-transform"
+          />
+        ))
+      }
+    </div>
+    <CTA
+      heading="¿Enfrentando una situación electoral?"
+      primaryLabel="Agendar Consulta"
+      primaryHref="/contacto/"
+    >
+      <Fragment slot="description">
+        No deje su futuro político al azar. En
+        <strong class="text-titaneo italic">Buitrago & Villota</strong> somos expertos
+        en defensa electoral y tenemos la experiencia para proteger su investidura.
+      </Fragment>
+    </CTA>
+  </div>
+</section>
+
+<script>
+  import { practiceAreasAnimation } from "@/utils/scripts/animations/home/practiceAreasAnimation.js";
+  practiceAreasAnimation();
+</script>

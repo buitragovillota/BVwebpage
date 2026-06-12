@@ -1,7 +1,164 @@
 ---
+import { Image } from "astro:assets";
+import { COMPANY_INFO } from "@/config/seoConf";
+import { MainNavigation } from "@/utils/navigation";
+import logoShine from "@/assets/images/logoshinewhitecharacters.svg";
+import Logo from "@/assets/images/whitelogo.png";
 
+// Icons
+import LinkedinIcon from "@/assets/icons/linkedin.svg";
+import WhatsappIcon from "@/assets/icons/whatsapp.svg";
+import PhoneIcon from "@/assets/icons/phone.svg";
+import MailIcon from "@/assets/icons/mail.svg";
+
+const currentYear = new Date().getFullYear();
+
+// Social media links
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    icon: LinkedinIcon,
+    url: COMPANY_INFO.socialMedia.linkedin || "#",
+  },
+];
+
+// Contact channels
+const contactLinks = [
+  {
+    name: "Teléfono",
+    label: COMPANY_INFO.phone,
+    icon: PhoneIcon,
+    url: `tel:${COMPANY_INFO.phone}`,
+    external: false,
+  },
+  {
+    name: "Correo electrónico",
+    label: COMPANY_INFO.email,
+    icon: MailIcon,
+    url: `mailto:${COMPANY_INFO.email}`,
+    external: false,
+  },
+  {
+    name: "WhatsApp",
+    label: "Escríbanos por WhatsApp",
+    icon: WhatsappIcon,
+    url: COMPANY_INFO.socialMedia.whatsapp || "#",
+    external: true,
+  },
+];
 ---
 
-<footer>
-  <h1>Footer</h1>
+<footer class="bg-titaneo border-gold/10 border-t pb-20 lg:pb-12">
+  <div class="mx-auto max-w-7xl px-6 py-12 lg:px-2">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12">
+      <!-- Column 1: Logo, Description & Social Media -->
+      <div class="md:col-span-2 lg:col-span-4">
+        <a href="/" aria-label="inicio" class="inline-block">
+          <Image
+            src={Logo}
+            alt="Logo Buitrago & Villota derecho electoral"
+            class="h-24 w-auto object-contain"
+            priority
+          />
+        </a>
+
+        <p class="text-snow/80 mt-4 max-w-md text-base leading-relaxed">
+          {COMPANY_INFO.description}
+        </p>
+
+        <!-- Social Media Icons -->
+        <div class="mt-6 flex items-center gap-4">
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.url}
+                aria-label={social.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group border-gold/20 bg-deep-dark/50 hover:border-gold hover:bg-gold/10 inline-flex h-10 w-10 items-center justify-center rounded-lg border transition-all duration-300"
+              >
+                <social.icon class="text-snow/70 group-hover:text-gold h-5 w-5 transition-colors duration-300" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Column 2: Contact -->
+      <div class="lg:col-span-4">
+        <h3 class="text-gold mb-6 text-xl font-semibold tracking-wide">
+          Contacto
+        </h3>
+        <ul class="space-y-4">
+          {
+            contactLinks.map((contact) => (
+              <li>
+                <a
+                  href={contact.url}
+                  aria-label={contact.name}
+                  target={contact.external ? "_blank" : undefined}
+                  rel={contact.external ? "noopener noreferrer" : undefined}
+                  class="group text-snow/70 hover:text-gold inline-flex items-center gap-3 text-base transition-colors duration-200"
+                >
+                  <contact.icon class="text-gold/60 group-hover:text-gold h-5 w-5 shrink-0 transition-colors duration-200" />
+                  <span>{contact.label}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Column 3: Navigation Links -->
+      <div class="lg:col-span-4">
+        <h3 class="text-gold mb-6 text-xl font-semibold tracking-wide">
+          Enlaces
+        </h3>
+        <ul class="space-y-4">
+          {
+            MainNavigation.map((item) => (
+              <li>
+                <a
+                  href={item.path}
+                  class="text-snow/70 hover:text-gold inline-block text-base transition-colors duration-200"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Copyright -->
+    <div class="border-gold/10 mt-8 border-t lg:mt-12">
+      <div
+        class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row sm:gap-6"
+      >
+        <p class="text-snow/50 text-xs">
+          &copy; {currentYear}
+          {COMPANY_INFO.name}. Todos los derechos reservados.
+        </p>
+        <a
+          href="https://shineagencia.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-center gap-2"
+        >
+          <p
+            class="text-snow/50 group-hover:text-gold text-xs transition-colors duration-300"
+          >
+            Desarrollado por:
+          </p>
+          <Image src={logoShine} alt="Logo" class="h-auto w-24" />
+        </a>
+        <a
+          href="/politica-privacidad/"
+          class="text-snow/50 hover:text-gold text-xs transition-colors duration-300"
+          >Política de Privacidad</a
+        >
+      </div>
+    </div>
+  </div>
 </footer>

@@ -8,8 +8,10 @@ export interface Author {
   name: string;
   /** Role in the company */
   role: string;
-  /** Short bio (1-2 sentences) to display in posts */
+  /** Short bio (1-2 sentences) for JSON-LD, cards, and post metadata */
   bio: string;
+  /** Full biography paragraphs for the nosotros/founders page */
+  fullBio?: string[];
   /** Author's image URL (optional) */
   image?: string;
   /** Credentials or specialties */
@@ -30,32 +32,44 @@ export interface Author {
  */
 export const AUTHORS: Author[] = [
   {
-    name: "Jane Doe",
-    role: "Co-founder & Brand Strategist",
-    bio: "Brand strategy specialist with 10+ years helping businesses build authentic connections with their audience.",
-    image: "/images/team/jane-doe.jpg",
-    credentials: ["Brand Strategy", "Digital Marketing", "Content Creation"],
-    socialMedia: {
-      instagram: "https://www.instagram.com/janedoe/",
-      linkedin: "https://www.linkedin.com/in/janedoe/",
-    },
-    url: "/about#jane-doe",
-  },
-  {
-    name: "John Smith",
-    role: "Co-founder & Web Developer",
-    bio: "Full-stack developer specialized in high-performance websites with modern technologies and SEO optimization.",
-    image: "/images/team/john-smith.jpg",
+    name: "Dra. Susana Buitrago Valencia",
+    role: "Socia Fundadora | Ex Magistrada titular de la Sección Quinta del Consejo de Estado",
+    bio: "Con más de 35 años en el derecho público y una década de litigio independiente, es referente indiscutible del derecho electoral colombiano. Ex Magistrada titular de la Sección Quinta del Consejo de Estado.",
+    fullBio: [
+      "Formada en la Universidad Pontificia Bolivariana y con estudios avanzados en la Universidad de Salamanca y la Escuela Judicial de Barcelona. Doctora Honoris Causa de la Universidad Francisco de Paula Santander de Cúcuta y miembro asidua de la Academia de Jurisprudencia. Con más de 35 años de trayectoria en el derecho público, ocupó cargos en la rama judicial durante toda su carrera, hasta llegar a la Consejería de Estado en la Sección Quinta, donde ejerció su período constitucional completo.",
+      "Fue miembro de la comisión que redactó el Código de Procedimiento Administrativo y Contencioso Administrativo (Ley 1437 de 2011) y es docente y conferencista en múltiples universidades del país. Con más de diez años de litigio independiente desde su salida del Consejo de Estado, hoy pone ese recorrido al servicio de quienes enfrentan un proceso electoral.",
+    ],
+    image: "/images/team/susana-buitrago.jpg",
     credentials: [
-      "Web Development",
-      "Performance Optimization",
-      "Technical SEO",
+      "Derecho Electoral",
+      "Pérdida de Investidura",
+      "Control de Legalidad",
+      "Derecho Contencioso Administrativo",
     ],
     socialMedia: {
-      linkedin: "https://www.linkedin.com/in/johnsmith/",
-      twitter: "https://twitter.com/johnsmith",
+      linkedin: "https://www.linkedin.com/in/susana-buitrago/",
     },
-    url: "/about#john-smith",
+    url: "/nosotros",
+  },
+  {
+    name: "Dr. Luis Fernando Villota Medina",
+    role: "Socio Fundador | Ex Magistrado Auxiliar de la Sección Quinta del Consejo de Estado",
+    bio: "Con más de 18 años de trayectoria jurídica, ocho de ellos en el Consejo de Estado, construyó su experiencia electoral desde adentro del sistema. Desde 2016 lidera procesos de nulidad electoral y pérdida de investidura a nivel nacional.",
+    fullBio: [
+      "Abogado de la Universidad Externado de Colombia, con maestría en Derecho Público por la Universidad Complutense de Madrid. Además, es especialista en Derecho Administrativo (Universidad Javeriana) y en Tributación (Universidad de los Andes).Cuenta con más de 20 años de trayectoria jurídica, de los cuales dedicó 13 a la rama judicial. Dentro de este periodo, destacan sus más de ocho años en el Consejo de Estado como Magistrado Auxiliar de la Sección Quinta, donde resolvió entre otros asuntos litigios de carácter electoral. Esta experiencia desde adentro de la corte le permite hoy brindar asesoría experta en la defensa e impugnación de candidaturas y elecciones, con conocimiento de causa.",
+      "Desde 2016 ejerce como abogado independiente liderando procesos de nulidad electoral y pérdida de investidura, asesorando candidatos y partidos a nivel nacional. Su experiencia en la alta magistratura, una década de litigio electoral y su trayectoria como docente en maestrías y especializaciones en Colombia y el exterior lo convierten en un referente único para la defensa e impugnación de candidaturas y elecciones con conocimiento real de causa.",
+    ],
+    image: "/images/team/luis-villota.jpg",
+    credentials: [
+      "Estrategia Jurídica",
+      "Derecho Electoral",
+      "Nulidad Electoral",
+      "Derecho Público",
+    ],
+    socialMedia: {
+      linkedin: "https://www.linkedin.com/in/luis-villota/",
+    },
+    url: "/nosotros",
   },
 ];
 
@@ -64,13 +78,17 @@ export const AUTHORS: Author[] = [
  * Uses organization as generic author
  */
 export const DEFAULT_AUTHOR: Author = {
-  name: "Your Company Name", // TODO: replace with COMPANY_INFO.name
-  role: "Digital Agency",
-  bio: "We help businesses grow online through design, development, and strategy.", // TODO: replace with COMPANY_INFO.description
-  credentials: ["Digital Marketing", "Web Design", "Brand Strategy"],
+  name: "Buitrago & Villota",
+  role: "Firma Boutique de Alta Magistratura",
+  bio: "Excelencia legal en el campo electoral. Expertos en defensa e impugnación electoral con más de 10 años de litigio independiente y una tasa de éxito superior al 95%.",
+  credentials: [
+    "Derecho Electoral",
+    "Nulidad Electoral",
+    "Pérdida de Investidura",
+    "Derecho Contencioso Administrativo",
+  ],
   socialMedia: {
-    linkedin: "https://www.linkedin.com/company/your-company", // TODO: replace with COMPANY_INFO.socialMedia.linkedin
-    instagram: "https://www.instagram.com/your-company", // TODO: replace with COMPANY_INFO.socialMedia.instagram
+    linkedin: "https://www.linkedin.com/company/buitrago-villota",
   },
 };
 

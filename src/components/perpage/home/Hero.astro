@@ -1,11 +1,130 @@
 ---
-
+import ArrowRight from "@/assets/icons/arrow-right.svg";
+import Scales from "@/assets/icons/scales.svg";
+import ArrowUp from "@/assets/icons/arrow-up.svg";
 ---
 
-<section class="hero-section mx-auto h-screen w-full">
+<section
+  class="hero-section from-titaneo to-deep-dark relative flex min-h-screen w-full items-center justify-center bg-linear-to-br px-6 py-32 sm:px-8 lg:px-12"
+>
+  <!-- Decorative gradient orbs for depth -->
   <div
-    class="hero-title flex items-center justify-center rounded-lg bg-slate-100 p-4 text-6xl font-bold text-pink-300"
+    class="bg-deep-indigo/30 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-3xl"
   >
-    <h1>Nueva web app</h1>
+  </div>
+  <div
+    class="bg-gold/10 absolute right-1/4 bottom-1/4 h-80 w-80 rounded-full blur-3xl"
+  >
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-4xl text-center">
+    <!-- Golden label -->
+    <div class="mb-8 flex items-center justify-center gap-3">
+      <div class="bg-gold h-px w-12"></div>
+      <p
+        class="text-gold text-sm font-medium tracking-wider uppercase sm:text-base"
+      >
+        Buitrago & Villota
+      </p>
+      <div class="bg-gold h-px w-12"></div>
+    </div>
+
+    <!-- Main heading -->
+    <div class="flex flex-col items-center justify-center">
+      <h1
+        id="hero-heading"
+        class="text-snow invisible mb-8 text-5xl leading-tight font-normal tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+      >
+        Excelencia iuris en
+        <span class="text-gold block italic">derecho electoral.</span>
+      </h1>
+
+      <!-- Description -->
+      <p
+        id="hero-subtitle"
+        class="text-snow/80 invisible mx-auto mb-12 max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl"
+      >
+        Expertos en defensa e impugnación electoral y nombramientos de altos
+        dignatarios del Estado.
+      </p>
+
+      <!-- CTA Button -->
+      <a
+        id="hero-cta"
+        href="/contacto"
+        class="group bg-gold text-titaneo hover:bg-gold/90 hover:shadow-gold/20 invisible inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm tracking-wide capitalize transition-all duration-300 hover:shadow-2xl sm:gap-3 sm:px-6 sm:text-base"
+      >
+        Agendar consulta
+        <ArrowRight
+          class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+        />
+      </a>
+    </div>
+
+    <!-- Stats Bar -->
+    <div
+      id="stats-bar"
+      class="invisible mt-16 sm:mt-20 lg:absolute lg:right-0 lg:-bottom-60 lg:left-0 lg:mt-24"
+    >
+      <div
+        class="bg-titaneo/95 border-gold mx-auto max-w-7xl rounded-3xl border p-3 shadow-2xl backdrop-blur-sm"
+      >
+        <ul
+          class="flex flex-col gap-8 sm:flex-row"
+          style="will-change: transform; display: flex;"
+        >
+          <!-- Stat 1: Years of Experience -->
+          <li
+            id="stat1"
+            class="invisible flex flex-1 list-none flex-col items-center p-4 text-center"
+          >
+            <div
+              class="bg-gold/10 mb-6 flex h-12 w-12 items-center justify-center rounded-full"
+            >
+              <Scales class="text-gold h-8 w-8" />
+            </div>
+            <h3
+              class="text-snow mb-1 font-serif text-3xl tracking-tight italic sm:text-4xl"
+            >
+              +<span id="yearsCount">0</span> Años
+            </h3>
+            <p
+              class="text-snow/80 text-xs font-medium tracking-wider uppercase sm:text-sm"
+            >
+              De Litigio Independiente
+            </p>
+          </li>
+
+          <!-- Stat 2: Success Rate -->
+          <li
+            id="stat2"
+            class="invisible flex flex-1 list-none flex-col items-center p-4 text-center"
+          >
+            <div
+              class="bg-gold/10 mb-6 flex h-12 w-12 items-center justify-center rounded-full"
+            >
+              <ArrowUp class="text-gold h-8 w-8" />
+            </div>
+            <h3
+              class="text-snow mb-1 font-serif text-3xl tracking-tight italic sm:text-4xl"
+            >
+              +<span id="successCount">0</span>%
+            </h3>
+            <p
+              class="text-snow/80 text-xs font-medium tracking-wider uppercase sm:text-sm"
+            >
+              De Éxito en Procesos
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  import { gsapReusableCounter } from "@/utils/scripts/animations/home/statsAnimation.js";
+  import { heroHomeAnimation } from "@/utils/scripts/animations/home/heroHomeAnimation.js";
+  heroHomeAnimation();
+  gsapReusableCounter();
+</script>
