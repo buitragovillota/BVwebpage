@@ -15,7 +15,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  site: "https://dev--rainbow-chimera-a0fa18.netlify.app/",
+  site: "https://buitragoyvillota.com/",
 
   fonts: [
     {
