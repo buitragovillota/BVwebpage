@@ -25,10 +25,17 @@ const socialLinks = [
 // Contact channels
 const contactLinks = [
   {
-    name: "Teléfono",
-    label: COMPANY_INFO.phone,
+    name: "Teléfono1",
+    label: COMPANY_INFO.phone[0], // Display the first phone number
     icon: PhoneIcon,
     url: `tel:${COMPANY_INFO.phone}`,
+    external: false,
+  },
+  {
+    name: "Teléfono2",
+    label: COMPANY_INFO.phone[1], // Display the second phone number
+    icon: PhoneIcon,
+    url: `tel:${COMPANY_INFO.phone[1]}`,
     external: false,
   },
   {
@@ -102,6 +109,7 @@ const contactLinks = [
                 >
                   <contact.icon class="text-gold/60 group-hover:text-gold h-5 w-5 shrink-0 transition-colors duration-200" />
                   <span>{contact.label}</span>
+
                 </a>
               </li>
             ))

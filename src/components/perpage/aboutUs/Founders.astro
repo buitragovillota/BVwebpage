@@ -27,7 +27,7 @@ const luis = AUTHORS[1];
       <Image
         src={lawyerwomen}
         alt={`${susana.name} — ${susana.role}`}
-        class="h-full w-full object-cover object-top grayscale"
+        class="h-full w-full object-cover object-top"
         widths={[640, 960, 1280]}
         sizes="(max-width: 1024px) 100vw, 50vw"
       />
@@ -67,7 +67,7 @@ const luis = AUTHORS[1];
       <div
         class="text-snow/75 mb-8 space-y-4 text-base leading-relaxed sm:text-lg"
       >
-        {susana.fullBio?.map((paragraph) => <p>{paragraph}</p>)}
+        {susana.fullBio?.map((paragraph) => <p class="text-justify tracking-tighter">{paragraph}</p>)}
       </div>
 
       <!-- Credentials -->
@@ -121,7 +121,7 @@ const luis = AUTHORS[1];
       <div
         class="text-snow/75 mb-8 space-y-4 text-base leading-relaxed sm:text-lg"
       >
-        {luis.fullBio?.map((paragraph) => <p>{paragraph}</p>)}
+        {luis.fullBio?.map((paragraph) => <p class="text-justify tracking-tighter">{paragraph}</p>)}
       </div>
 
       <!-- Credentials -->
@@ -143,7 +143,7 @@ const luis = AUTHORS[1];
       <Image
         src={lawyermen}
         alt={`${luis.name} — ${luis.role}`}
-        class="h-full w-full object-cover object-top grayscale"
+        class="h-full w-full object-cover object-top"
         widths={[640, 960, 1280]}
         sizes="(max-width: 1024px) 100vw, 50vw"
       />
