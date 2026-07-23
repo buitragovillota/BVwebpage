@@ -27,7 +27,7 @@ export interface CompanyInfo {
   name: string;
   description: string;
   url: string;
-  phone: string;
+  phone: string | string[];
   email: string;
   address: {
     street: string;
@@ -92,13 +92,13 @@ export const COMPANY_INFO: CompanyInfo = {
   description:
     "Firma boutique en derecho electoral colombiano. Nulidad electoral, pérdida de investidura e impugnación de candidaturas. +95% de éxito.",
   url: "https://buitragovillota.com", // TODO: confirmar URL definitiva del sitio
-  phone: "+57-300-651-0408",
+  phone: ["+57-300-651-0408", "+57-316-740-2876"],
   email: "buitragovillota.abogados@gmail.com",
   address: {
-    street: "Kr 13 #85-39",
+    street: "Cra 2b # 66-28",
     city: "Bogotá",
     region: "Bogotá D.C.",
-    postalCode: "110221",
+    postalCode: "110231",
     country: "Colombia",
     countryCode: "CO",
   },
@@ -113,6 +113,7 @@ export const COMPANY_INFO: CompanyInfo = {
   socialMedia: {
     linkedin: "https://www.linkedin.com/in/luis-fernando-villota-medina-878603176/",
     whatsapp: "https://api.whatsapp.com/send?phone=573006510408&text=Hola%20buen%20d%C3%ADa%2C%0AEstoy%20interesado%2Fa%20en%20sus%20servicios",
+    googlebusiness: "https://share.google/VcNtcWLu1hF51gC8s",
   },
 };
 
