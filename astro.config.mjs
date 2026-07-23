@@ -7,6 +7,8 @@ import netlify from "@astrojs/netlify";
 
 import sitemap from "@astrojs/sitemap";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -29,5 +31,5 @@ export default defineConfig({
   ],
 
   adapter: netlify(),
-  integrations: [sitemap()],
+  integrations: [sitemap(), partytown()],
 });
