@@ -35,7 +35,7 @@ export const getContact = defineAction({
   handler: async ({ nombre, cargo, email, telefono, asunto, mensaje }) => {
     try {
       const { data, error } = await resend.emails.send({
-        from: `${COMPANY_INFO.name} <onboarding@resend.dev>`,
+        from: `${COMPANY_INFO.name} <noreply@buitragoyvillota.com>`,
         to: COMPANY_INFO.email,
         subject: `Nueva consulta — ${asunto ?? "Sin asunto"}`,
         html: `
