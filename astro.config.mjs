@@ -9,9 +9,6 @@ import sitemap from "@astrojs/sitemap";
 
 import partytown from "@astrojs/partytown";
 
-// Pages marked noindex must stay out of the sitemap
-const NOINDEX_PATHS = ["/politica-privacidad/"];
-
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -36,10 +33,5 @@ export default defineConfig({
   ],
 
   adapter: netlify(),
-  integrations: [
-    sitemap({
-      filter: (page) => !NOINDEX_PATHS.includes(new URL(page).pathname),
-    }),
-    partytown(),
-  ],
+  integrations: [sitemap(), partytown()],
 });
