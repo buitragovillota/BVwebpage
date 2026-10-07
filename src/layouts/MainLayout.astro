@@ -16,11 +16,16 @@ import WhatsApp from "@/components/ui/WhatsApp.astro";
 interface Props {
   seoProps: SEOProps;
   schemas?: JSONLDSchema[];
+  notFound?: boolean;
 }
 
-const { seoProps, schemas = [] } = Astro.props;
+const { seoProps, schemas = [], notFound = false } = Astro.props;
 
-const allSchemas = [...schemas, ORGANIZATION_SCHEMA, WEBSITE_SCHEMA];
+// noindex pages and the 404 carry no JSON-LD
+const allSchemas =
+  seoProps.noindex || notFound
+    ? []
+    : [...schemas, ORGANIZATION_SCHEMA, WEBSITE_SCHEMA];
 ---
 
 <!doctype html>
@@ -44,7 +49,7 @@ const allSchemas = [...schemas, ORGANIZATION_SCHEMA, WEBSITE_SCHEMA];
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- SEO Head -->
-    <SeoHead seoProps={seoProps} schemas={allSchemas} />
+    <SeoHead seoProps={seoProps} schemas={allSchemas} notFound={notFound} />
 
     <!-- Font Optimization -->
     <Font cssVariable="--font-cormorant-garamond" preload />

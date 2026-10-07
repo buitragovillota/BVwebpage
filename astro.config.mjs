@@ -17,6 +17,8 @@ export default defineConfig({
 
   site: "https://buitragoyvillota.com/",
 
+  trailingSlash: "always",
+
   fonts: [
     {
       name: "Cormorant Garamond",
