@@ -182,8 +182,8 @@ export const DEFAULT_SEO: SEOProps = {
     image: mediaUrl(COMPANY_INFO.image),
   },
   extend: {
+    // No robots meta here: astro-seo already emits it from `noindex`
     meta: [
-      { name: "robots", content: "index, follow" },
       { name: "author", content: COMPANY_INFO.name },
       { name: "theme-color", content: "#12001c" },
       { name: "msapplication-TileColor", content: "#12001c" },
@@ -247,12 +247,9 @@ export function generateDynamicSEO(options: DynamicSEOOptions): SEOProps {
       image: imageUrl,
     },
     extend: {
+      // No robots meta here: astro-seo already emits it from `noindex`
       meta: [
         { name: "author", content: COMPANY_INFO.name },
-        {
-          name: "robots",
-          content: options.noindex ? "noindex, nofollow" : "index, follow",
-        },
         { name: "theme-color", content: "#12001c" },
         { httpEquiv: "Content-Language", content: "es-CO" },
       ],
