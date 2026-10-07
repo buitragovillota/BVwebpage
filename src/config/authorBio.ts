@@ -49,7 +49,7 @@ export const AUTHORS: Author[] = [
     socialMedia: {
       linkedin: "https://www.linkedin.com/in/susana-buitrago/",
     },
-    url: "/nosotros",
+    url: "/nosotros/",
   },
   {
     name: "Dr. Luis Fernando Villota Medina",
@@ -69,7 +69,7 @@ export const AUTHORS: Author[] = [
     socialMedia: {
       linkedin: "https://www.linkedin.com/in/luis-villota/",
     },
-    url: "/nosotros",
+    url: "/nosotros/",
   },
 ];
 
